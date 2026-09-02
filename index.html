@@ -679,6 +679,22 @@ function sortLeads() {
   });
 }
 
+// Some petitions just write "Same" (meaning same as the decedent's
+// address above) or "See Exhibit A" (meaning it's attached separately,
+// not written on the form) instead of an actual mailing address. In
+// either case, the decedent's own address is the best available stand-in
+// — showing the placeholder text itself as if it were a street would be
+// misleading.
+const PLACEHOLDER_ADDRESS_PATTERN = /^(same\b|see\s+exhibit|see\s+attached|exhibit\s)/i;
+
+function isPlaceholderAddress(raw) {
+  return !!raw && PLACEHOLDER_ADDRESS_PATTERN.test(raw.trim());
+}
+
+function effectiveMailingAddress(l) {
+  return isPlaceholderAddress(l.mailingAddress) ? (l.decedentAddress || null) : l.mailingAddress;
+}
+
 function hasUsableDecedentAddress(l) {
   const parsed = correctedAddressParts(l.decedentAddress);
   // Require both a street AND a zip to count as a real, usable address —
@@ -728,7 +744,7 @@ function render() {
       ${addressCells(l.decedentAddress)}
       <td class="name-cell col-group-border">${rep.first || '\u2014'}</td>
       <td class="name-cell">${rep.last || '\u2014'}</td>
-      ${addressCells(l.mailingAddress)}
+      ${addressCells(effectiveMailingAddress(l))}
       <td class="date-cell">${l.caseNumber || '\u2014'}</td>
     `;
     tbody.appendChild(tr);
@@ -790,7 +806,7 @@ function exportCsv() {
 
   const rows = rowsToExport.map(l => {
     const d = correctedAddressParts(l.decedentAddress) || {};
-    const m = correctedAddressParts(l.mailingAddress) || {};
+    const m = correctedAddressParts(effectiveMailingAddress(l)) || {};
     const rep = splitPersonalRepName(l.petitionerName);
     return [
       formatDate(l.dateFiled), shortCounty(l.county), l.caseType || '', l.caseNumber || '', l.status || '',
