@@ -19,7 +19,6 @@
     --accent-county: #2F5233;
     --accent-county-bg: #E4EADD;
     --accent-link: #1D4E5F;
-    --shadow: 0 1px 2px rgba(35,34,29,0.06);
   }
 
   * { box-sizing: border-box; }
@@ -41,7 +40,7 @@
   }
 
   .masthead-inner {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     display: flex;
     align-items: baseline;
@@ -65,10 +64,7 @@
     text-align: right;
   }
 
-  .masthead-stats strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
+  .masthead-stats strong { color: var(--ink); font-weight: 500; }
 
   .toolbar {
     position: sticky;
@@ -80,7 +76,7 @@
   }
 
   .toolbar-inner {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -88,17 +84,11 @@
     flex-wrap: wrap;
   }
 
-  .field-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .toolbar-row + .toolbar-row { margin-top: 10px; }
 
-  .field-group label {
-    font-size: 12px;
-    color: var(--ink-soft);
-    white-space: nowrap;
-  }
+  .field-group { display: flex; align-items: center; gap: 8px; }
+
+  .field-group label { font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
 
   input[type="date"], input[type="search"], select {
     font-family: 'Inter', sans-serif;
@@ -112,13 +102,7 @@
 
   input[type="search"] { width: 220px; }
 
-  .county-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-
-  .chip {
+  .chip, .toggle-flag {
     font-size: 12.5px;
     padding: 5px 11px;
     border-radius: 14px;
@@ -136,18 +120,6 @@
     color: white;
   }
 
-  .toggle-flag {
-    font-size: 12.5px;
-    padding: 5px 11px;
-    border-radius: 14px;
-    border: 1px solid var(--rule-strong);
-    background: var(--paper-raised);
-    cursor: pointer;
-    color: var(--ink-soft);
-    user-select: none;
-    transition: background 0.12s, color 0.12s, border-color 0.12s;
-  }
-
   .toggle-flag.active {
     background: var(--accent-flag);
     border-color: var(--accent-flag);
@@ -162,72 +134,83 @@
     color: var(--ink-soft);
   }
 
+  .export-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 3px;
+    border: 1px solid var(--accent-link);
+    background: var(--accent-link);
+    color: white;
+    cursor: pointer;
+  }
+
+  .export-btn:hover { opacity: 0.9; }
+
+  .export-btn:disabled {
+    background: var(--paper-raised);
+    color: var(--rule-strong);
+    border-color: var(--rule);
+    cursor: default;
+  }
+
   main {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 20px 32px 60px;
+    overflow-x: auto;
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
+  table { width: 100%; border-collapse: collapse; }
+
+  thead tr.group-row th {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 4px 8px 2px;
+    border-bottom: none;
   }
 
-  thead th {
+  thead tr.field-row th {
     text-align: left;
     font-size: 12px;
     font-weight: 500;
     color: var(--ink-soft);
-    padding: 8px 12px;
+    padding: 4px 10px 8px;
     border-bottom: 1.5px solid var(--rule-strong);
     cursor: pointer;
     white-space: nowrap;
   }
 
-  thead th:hover { color: var(--ink); }
+  thead tr.field-row th.no-sort { cursor: default; }
+  thead tr.field-row th:hover:not(.no-sort) { color: var(--ink); }
 
-  thead th .sort-arrow {
-    opacity: 0.4;
-    margin-left: 3px;
-    font-size: 10px;
-  }
-
+  thead th .sort-arrow { opacity: 0.4; margin-left: 3px; font-size: 10px; }
   thead th.sorted .sort-arrow { opacity: 1; }
 
-  tbody tr {
-    border-bottom: 1px solid var(--rule);
-  }
+  .col-group-border { border-left: 1px solid var(--rule); }
 
-  tbody tr:hover {
-    background: var(--paper-raised);
-  }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:hover { background: var(--paper-raised); }
+  tbody tr.selected { background: #EFEAD8; }
 
   td {
-    padding: 11px 12px;
+    padding: 10px;
     vertical-align: top;
     font-size: 13.5px;
-  }
-
-  td.date-cell {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12.5px;
-    color: var(--ink-soft);
     white-space: nowrap;
   }
 
-  td.name-cell {
-    font-weight: 500;
-  }
+  td.wrap-cell { white-space: normal; max-width: 200px; }
+  td.checkbox-cell { padding-left: 14px; padding-right: 4px; }
+  td.date-cell { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft); }
+  td.name-cell { font-weight: 500; white-space: normal; max-width: 180px; }
+  td.addr-part { color: var(--ink-soft); }
+  td.zip-cell { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft); }
 
-  td.address-cell {
-    color: var(--ink-soft);
-    max-width: 240px;
-  }
-
-  .no-address {
-    color: var(--rule-strong);
-    font-style: italic;
-  }
+  .no-address { color: var(--rule-strong); font-style: italic; }
 
   .county-tag {
     display: inline-block;
@@ -236,7 +219,6 @@
     border-radius: 3px;
     background: var(--accent-county-bg);
     color: var(--accent-county);
-    white-space: nowrap;
   }
 
   .flag-tag {
@@ -250,59 +232,19 @@
     white-space: nowrap;
   }
 
-  .copy-btn {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    color: var(--accent-link);
-    background: none;
-    border: none;
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
     cursor: pointer;
-    padding: 0;
-    margin-top: 3px;
-    opacity: 0;
-    transition: opacity 0.1s;
+    accent-color: var(--accent-county);
   }
 
-  tr:hover .copy-btn { opacity: 1; }
-
-  .copy-btn:hover { text-decoration: underline; }
-
-  .empty-state {
-    text-align: center;
-    padding: 80px 20px;
-    color: var(--ink-soft);
-  }
-
-  .empty-state h2 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 20px;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
+  .empty-state { text-align: center; padding: 80px 20px; color: var(--ink-soft); }
+  .empty-state h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 20px; color: var(--ink); margin-bottom: 6px; }
 
   @media (max-width: 900px) {
-    .masthead, .toolbar, main { padding-left: 16px; padding-right: 16px; }
+    .masthead, .toolbar { padding-left: 16px; padding-right: 16px; }
     input[type="search"] { width: 140px; }
-    table, thead, tbody, th, td, tr { display: block; }
-    thead { display: none; }
-    tbody tr {
-      background: var(--paper-raised);
-      margin-bottom: 10px;
-      border: 1px solid var(--rule);
-      border-radius: 4px;
-      padding: 10px 4px;
-    }
-    td { padding: 6px 12px; }
-    td::before {
-      content: attr(data-label);
-      display: block;
-      font-size: 10.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--rule-strong);
-      margin-bottom: 2px;
-    }
   }
 </style>
 </head>
@@ -317,37 +259,54 @@
 
 <div class="toolbar">
   <div class="toolbar-inner">
-    <div class="field-group">
-      <label for="from-date">Filed from</label>
-      <input type="date" id="from-date">
-    </div>
-    <div class="field-group">
-      <label for="to-date">to</label>
-      <input type="date" id="to-date">
-    </div>
-    <div class="field-group county-chips" id="county-chips"></div>
-    <div class="field-group">
+    <div class="toolbar-row" style="display:flex; align-items:center; gap:18px; flex-wrap:wrap; width:100%;">
+      <div class="field-group">
+        <label for="from-date">Filed from</label>
+        <input type="date" id="from-date">
+      </div>
+      <div class="field-group">
+        <label for="to-date">to</label>
+        <input type="date" id="to-date">
+      </div>
+      <div class="field-group county-chips" id="county-chips"></div>
       <span class="toggle-flag" id="hot-flag-toggle">Leave-to-sell only</span>
-    </div>
-    <div class="field-group">
       <span class="toggle-flag" id="has-address-toggle">Has address only</span>
+      <input type="search" id="search-box" placeholder="Search name or case #">
+      <div class="spacer"></div>
+      <button class="export-btn" id="export-btn">Export CSV</button>
+      <div class="result-count" id="result-count"></div>
     </div>
-    <input type="search" id="search-box" placeholder="Search name or case #">
-    <div class="spacer"></div>
-    <div class="result-count" id="result-count"></div>
   </div>
 </div>
 
 <main>
   <table id="leads-table">
     <thead>
-      <tr>
+      <tr class="group-row">
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th colspan="4" class="col-group-border">Decedent address</th>
+        <th colspan="2" class="col-group-border">Personal representative</th>
+        <th colspan="4" class="col-group-border">Mailing address</th>
+        <th></th>
+      </tr>
+      <tr class="field-row">
+        <th class="no-sort"><input type="checkbox" id="select-all-checkbox" title="Select all"></th>
         <th data-sort="dateFiled">Filed <span class="sort-arrow">&#9660;</span></th>
         <th data-sort="county">County <span class="sort-arrow">&#9660;</span></th>
         <th data-sort="decedentName">Decedent <span class="sort-arrow">&#9660;</span></th>
-        <th>Decedent address</th>
-        <th data-sort="petitionerName">Personal rep. <span class="sort-arrow">&#9660;</span></th>
-        <th>Mailing address</th>
+        <th class="col-group-border">Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th class="col-group-border">First</th>
+        <th data-sort="petitionerName">Last <span class="sort-arrow">&#9660;</span></th>
+        <th class="col-group-border">Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
         <th data-sort="caseNumber">Case # <span class="sort-arrow">&#9660;</span></th>
       </tr>
     </thead>
@@ -367,14 +326,150 @@ let sortDir = 'desc';
 let activeCounties = new Set();
 let hotFlagOnly = false;
 let hasAddressOnly = false;
+let selectedIds = new Set();
 
+// ---------- County name cleanup ----------
 function shortCounty(full) {
   if (!full) return 'Unknown';
-  return full
-    .replace(' Probate Court', '')
-    .replace(' County', '')
-    .replace(' - Superior Court', ' (Superior)')
-    .trim();
+  let s = full;
+  s = s.replace(/\bCounty\b/gi, '');
+  s = s.replace(/\bProbate Court\b/gi, '');
+  s = s.replace(/\bSuperior Court\b/gi, '');
+  s = s.replace(/\s+A\s*$/i, ''); // trailing lone "A" division marker (Forsyth's second court)
+  s = s.replace(/[-–—]+/g, ' ');
+  s = s.replace(/\s+/g, ' ').trim();
+  return s || full;
+}
+
+// ---------- Address parsing ----------
+const STATE_NAMES = {
+  'alabama':'AL','alaska':'AK','arizona':'AZ','arkansas':'AR','california':'CA','colorado':'CO',
+  'connecticut':'CT','delaware':'DE','florida':'FL','georgia':'GA','hawaii':'HI','idaho':'ID',
+  'illinois':'IL','indiana':'IN','iowa':'IA','kansas':'KS','kentucky':'KY','louisiana':'LA',
+  'maine':'ME','maryland':'MD','massachusetts':'MA','michigan':'MI','minnesota':'MN',
+  'mississippi':'MS','missouri':'MO','montana':'MT','nebraska':'NE','nevada':'NV',
+  'new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC',
+  'north dakota':'ND','ohio':'OH','oklahoma':'OK','oregon':'OR','pennsylvania':'PA',
+  'rhode island':'RI','south carolina':'SC','south dakota':'SD','tennessee':'TN','texas':'TX',
+  'utah':'UT','vermont':'VT','virginia':'VA','washington':'WA','west virginia':'WV',
+  'wisconsin':'WI','wyoming':'WY'
+};
+
+function normalizeState(raw) {
+  if (!raw) return '';
+  const trimmed = raw.trim();
+  if (trimmed.length === 2) return trimmed.toUpperCase();
+  return STATE_NAMES[trimmed.toLowerCase()] || trimmed;
+}
+
+// Counties this register covers. Used only to disambiguate addresses that
+// have just ONE word between the street and the state (e.g. "123 Main St,
+// Fulton, GA 30349") — in the real data, that lone word is sometimes the
+// county (with the city field left blank on the original form) rather
+// than an actual city name. If it matches a known county, we treat it as
+// the dropped county and leave city blank, instead of mislabeling a
+// county as if it were the city.
+const KNOWN_COUNTIES = new Set(['fulton', 'rockdale', 'cherokee', 'cobb', 'forsyth', 'gwinnett', 'glynn']);
+
+function parseAddress(addr) {
+  if (!addr) return null;
+
+  const stateZipRegex = /([A-Za-z]{2,})\s*,?\s*(\d{5}(?:-\d{4})?)\s*$/;
+  const match = addr.match(stateZipRegex);
+
+  let state = '';
+  let zip = '';
+  let rest = addr;
+
+  if (match) {
+    state = normalizeState(match[1]);
+    zip = match[2];
+    rest = addr.slice(0, match.index).trim().replace(/,\s*$/, '');
+  }
+
+  let parts = rest.split(',').map(p => p.trim()).filter(Boolean);
+  const street = parts.length > 0 ? parts[0] : rest;
+  const middleParts = parts.slice(1);
+
+  let city = '';
+  if (middleParts.length === 1) {
+    // Ambiguous: could be city, could be a county with city left blank.
+    city = KNOWN_COUNTIES.has(middleParts[0].toLowerCase()) ? '' : middleParts[0];
+  } else if (middleParts.length >= 2) {
+    city = middleParts[0]; // first = city; remaining (usually county) dropped
+  }
+
+  return { street, city, state, zip };
+}
+
+// ---------- ZIP-code city correction ----------
+// A ZIP code reliably maps to one city (that's how USPS delivers mail),
+// so it's a more trustworthy source for the city name than handwriting
+// OCR. We look up each unique ZIP once via a free public postal lookup
+// and use that to correct/fill in the city. If the lookup fails for any
+// reason (offline, ZIP not found, etc.), we just fall back to whatever
+// city was read off the original document — nothing breaks.
+let zipCache = {};
+
+async function fetchZipInfo(zip) {
+  if (zipCache.hasOwnProperty(zip)) return zipCache[zip];
+  try {
+    const res = await fetch(`https://api.zippopotam.us/us/${zip}`);
+    if (!res.ok) { zipCache[zip] = null; return null; }
+    const data = await res.json();
+    const place = data.places && data.places[0];
+    const info = place ? { city: place['place name'], state: place['state abbreviation'] } : null;
+    zipCache[zip] = info;
+    return info;
+  } catch (e) {
+    zipCache[zip] = null;
+    return null;
+  }
+}
+
+async function preloadZipCorrections() {
+  const zips = new Set();
+  allLeads.forEach(l => {
+    [l.decedentAddress, l.mailingAddress].forEach(addr => {
+      const parsed = parseAddress(addr);
+      if (parsed && /^\d{5}$/.test(parsed.zip)) zips.add(parsed.zip);
+    });
+  });
+  const uniqueZips = [...zips];
+  const concurrency = 6; // be polite to the free lookup service
+  for (let i = 0; i < uniqueZips.length; i += concurrency) {
+    const batch = uniqueZips.slice(i, i + concurrency);
+    await Promise.all(batch.map(fetchZipInfo));
+  }
+}
+
+// Returns parsed address parts, using the ZIP-verified city/state when
+// available, otherwise falling back to what was read off the document.
+function correctedAddressParts(addr) {
+  const parsed = parseAddress(addr);
+  if (!parsed) return null;
+  const info = parsed.zip ? zipCache[parsed.zip] : null;
+  if (info) {
+    return { street: parsed.street, city: info.city || parsed.city, state: info.state || parsed.state, zip: parsed.zip };
+  }
+  return parsed;
+}
+
+// Court data stores names as "Last, First Middle" — split on the first
+// comma. If a name has no comma (rare, but happens), fall back to
+// treating the last word as the last name.
+function splitPersonalRepName(fullName) {
+  if (!fullName) return { first: '', last: '' };
+  const commaIndex = fullName.indexOf(',');
+  if (commaIndex !== -1) {
+    return {
+      last: fullName.slice(0, commaIndex).trim(),
+      first: fullName.slice(commaIndex + 1).trim(),
+    };
+  }
+  const parts = fullName.trim().split(/\s+/);
+  if (parts.length === 1) return { first: parts[0], last: '' };
+  return { first: parts.slice(0, -1).join(' '), last: parts[parts.length - 1] };
 }
 
 function formatDate(iso) {
@@ -399,10 +494,13 @@ async function loadLeads() {
     document.getElementById('masthead-stats').textContent = 'Could not load leads.json';
     return;
   }
-
   buildCountyChips();
   setDefaultDateRange();
   applyFilters();
+
+  document.getElementById('masthead-stats').innerHTML += ' &middot; <em>verifying cities&hellip;</em>';
+  await preloadZipCorrections();
+  render(); // re-render with corrected cities now that lookups are in
 }
 
 function buildCountyChips() {
@@ -413,15 +511,9 @@ function buildCountyChips() {
     const chip = document.createElement('span');
     chip.className = 'chip';
     chip.textContent = shortCounty(c);
-    chip.dataset.county = c;
     chip.addEventListener('click', () => {
-      if (activeCounties.has(c)) {
-        activeCounties.delete(c);
-        chip.classList.remove('active');
-      } else {
-        activeCounties.add(c);
-        chip.classList.add('active');
-      }
+      if (activeCounties.has(c)) { activeCounties.delete(c); chip.classList.remove('active'); }
+      else { activeCounties.add(c); chip.classList.add('active'); }
       applyFilters();
     });
     container.appendChild(chip);
@@ -429,12 +521,10 @@ function buildCountyChips() {
 }
 
 function setDefaultDateRange() {
-  // Default to the last 7 days, since that's the typical daily-review window.
   const dates = allLeads.map(l => isoDateOnly(l.dateFiled)).filter(Boolean).sort();
   if (dates.length === 0) return;
   const latest = dates[dates.length - 1];
-  const latestDate = new Date(latest);
-  const weekAgo = new Date(latestDate);
+  const weekAgo = new Date(latest);
   weekAgo.setDate(weekAgo.getDate() - 7);
   document.getElementById('to-date').value = latest;
   document.getElementById('from-date').value = weekAgo.toISOString().slice(0, 10);
@@ -453,8 +543,7 @@ function applyFilters() {
     if (hotFlagOnly && !l.isHotFlag) return false;
     if (hasAddressOnly && !l.mailingAddress) return false;
     if (searchVal) {
-      const haystack = [l.decedentName, l.petitionerName, l.caseNumber]
-        .filter(Boolean).join(' ').toLowerCase();
+      const haystack = [l.decedentName, l.petitionerName, l.caseNumber].filter(Boolean).join(' ').toLowerCase();
       if (!haystack.includes(searchVal)) return false;
     }
     return true;
@@ -481,59 +570,144 @@ function sortLeads() {
   });
 }
 
+function addressCells(addr) {
+  const parsed = correctedAddressParts(addr);
+  if (!parsed) {
+    return `<td class="addr-part wrap-cell col-group-border no-address">Not found yet</td><td class="addr-part wrap-cell no-address">&mdash;</td><td class="addr-part no-address">&mdash;</td><td class="zip-cell no-address">&mdash;</td>`;
+  }
+  return `
+    <td class="addr-part wrap-cell col-group-border">${parsed.street || '\u2014'}</td>
+    <td class="addr-part wrap-cell">${parsed.city || '\u2014'}</td>
+    <td class="addr-part">${parsed.state || '\u2014'}</td>
+    <td class="zip-cell">${parsed.zip || '\u2014'}</td>
+  `;
+}
+
 function render() {
   const tbody = document.getElementById('leads-body');
   const emptyState = document.getElementById('empty-state');
   tbody.innerHTML = '';
 
+  const table = document.getElementById('leads-table');
   if (filteredLeads.length === 0) {
     emptyState.style.display = 'block';
-    document.getElementById('leads-table').style.display = 'none';
+    table.style.display = 'none';
   } else {
     emptyState.style.display = 'none';
-    document.getElementById('leads-table').style.display = 'table';
+    table.style.display = 'table';
   }
 
   filteredLeads.forEach(l => {
     const tr = document.createElement('tr');
+    if (selectedIds.has(l.caseDataID)) tr.classList.add('selected');
+    const rep = splitPersonalRepName(l.petitionerName);
 
     tr.innerHTML = `
-      <td class="date-cell" data-label="Filed">${formatDate(l.dateFiled)}</td>
-      <td data-label="County"><span class="county-tag">${shortCounty(l.county)}</span>${l.isHotFlag ? '<span class="flag-tag">Leave to sell</span>' : ''}</td>
-      <td class="name-cell" data-label="Decedent">${l.decedentName || '\u2014'}</td>
-      <td class="address-cell" data-label="Decedent address">${renderAddress(l.decedentAddress)}</td>
-      <td class="name-cell" data-label="Personal rep.">${l.petitionerName || '\u2014'}</td>
-      <td class="address-cell" data-label="Mailing address">${renderAddress(l.mailingAddress)}</td>
-      <td class="date-cell" data-label="Case #">${l.caseNumber || '\u2014'}</td>
+      <td class="checkbox-cell"><input type="checkbox" class="row-checkbox" data-id="${l.caseDataID}" ${selectedIds.has(l.caseDataID) ? 'checked' : ''}></td>
+      <td class="date-cell">${formatDate(l.dateFiled)}</td>
+      <td><span class="county-tag">${shortCounty(l.county)}</span>${l.isHotFlag ? '<span class="flag-tag">Leave to sell</span>' : ''}</td>
+      <td class="name-cell">${l.decedentName || '\u2014'}</td>
+      ${addressCells(l.decedentAddress)}
+      <td class="name-cell col-group-border">${rep.first || '\u2014'}</td>
+      <td class="name-cell">${rep.last || '\u2014'}</td>
+      ${addressCells(l.mailingAddress)}
+      <td class="date-cell">${l.caseNumber || '\u2014'}</td>
     `;
     tbody.appendChild(tr);
   });
 
-  tbody.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      navigator.clipboard.writeText(btn.dataset.address);
-      btn.textContent = 'Copied';
-      setTimeout(() => { btn.textContent = 'Copy'; }, 1200);
+  tbody.querySelectorAll('.row-checkbox').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const id = cb.dataset.id;
+      if (cb.checked) selectedIds.add(id); else selectedIds.delete(id);
+      cb.closest('tr').classList.toggle('selected', cb.checked);
+      updateSelectAllState();
+      updateExportButton();
     });
   });
 
-  document.getElementById('result-count').textContent =
-    `${filteredLeads.length} of ${allLeads.length} filings`;
+  updateSelectAllState();
+  updateExportButton();
 
+  document.getElementById('result-count').textContent = `${filteredLeads.length} of ${allLeads.length} filings`;
   const withAddress = allLeads.filter(l => l.mailingAddress).length;
   document.getElementById('masthead-stats').innerHTML =
     `<strong>${allLeads.length}</strong> filings on record &middot; <strong>${withAddress}</strong> with an address found`;
 }
 
-function renderAddress(addr) {
-  if (!addr) return '<span class="no-address">Not found yet</span>';
-  const escaped = addr.replace(/"/g, '&quot;');
-  return `${addr}<br><button class="copy-btn" data-address="${escaped}">Copy</button>`;
+function updateSelectAllState() {
+  const box = document.getElementById('select-all-checkbox');
+  const visibleIds = filteredLeads.map(l => l.caseDataID);
+  const allSelected = visibleIds.length > 0 && visibleIds.every(id => selectedIds.has(id));
+  box.checked = allSelected;
+}
+
+function updateExportButton() {
+  const btn = document.getElementById('export-btn');
+  if (selectedIds.size > 0) {
+    btn.textContent = `Export ${selectedIds.size} selected`;
+  } else {
+    btn.textContent = `Export all ${filteredLeads.length} filtered`;
+  }
+  btn.disabled = filteredLeads.length === 0;
+}
+
+function csvEscape(value) {
+  const s = (value === null || value === undefined) ? '' : String(value);
+  if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+  return s;
+}
+
+function exportCsv() {
+  const rowsToExport = selectedIds.size > 0
+    ? filteredLeads.filter(l => selectedIds.has(l.caseDataID))
+    : filteredLeads;
+
+  const headers = [
+    'Filed Date', 'County', 'Case Type', 'Case Number', 'Status',
+    'Decedent Name', 'Decedent Street', 'Decedent City', 'Decedent State', 'Decedent Zip',
+    'Personal Rep First', 'Personal Rep Last', 'Mailing Street', 'Mailing City', 'Mailing State', 'Mailing Zip',
+    'Date of Death', 'Leave to Sell Flag'
+  ];
+
+  const rows = rowsToExport.map(l => {
+    const d = correctedAddressParts(l.decedentAddress) || {};
+    const m = correctedAddressParts(l.mailingAddress) || {};
+    const rep = splitPersonalRepName(l.petitionerName);
+    return [
+      formatDate(l.dateFiled), shortCounty(l.county), l.caseType || '', l.caseNumber || '', l.status || '',
+      l.decedentName || '', d.street || '', d.city || '', d.state || '', d.zip || '',
+      rep.first || '', rep.last || '', m.street || '', m.city || '', m.state || '', m.zip || '',
+      l.dateOfDeath || '', l.isHotFlag ? 'Yes' : ''
+    ];
+  });
+
+  const csvContent = [headers, ...rows].map(row => row.map(csvEscape).join(',')).join('\r\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const dateStamp = new Date().toISOString().slice(0, 10);
+  a.href = url;
+  a.download = `probate-leads-${dateStamp}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 document.getElementById('from-date').addEventListener('change', applyFilters);
 document.getElementById('to-date').addEventListener('change', applyFilters);
 document.getElementById('search-box').addEventListener('input', applyFilters);
+document.getElementById('export-btn').addEventListener('click', exportCsv);
+
+document.getElementById('select-all-checkbox').addEventListener('change', function() {
+  if (this.checked) {
+    filteredLeads.forEach(l => selectedIds.add(l.caseDataID));
+  } else {
+    filteredLeads.forEach(l => selectedIds.delete(l.caseDataID));
+  }
+  render();
+});
 
 document.getElementById('hot-flag-toggle').addEventListener('click', function() {
   hotFlagOnly = !hotFlagOnly;
@@ -550,12 +724,8 @@ document.getElementById('has-address-toggle').addEventListener('click', function
 document.querySelectorAll('thead th[data-sort]').forEach(th => {
   th.addEventListener('click', () => {
     const field = th.dataset.sort;
-    if (sortField === field) {
-      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
-    } else {
-      sortField = field;
-      sortDir = field === 'dateFiled' ? 'desc' : 'asc';
-    }
+    if (sortField === field) { sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }
+    else { sortField = field; sortDir = field === 'dateFiled' ? 'desc' : 'asc'; }
     document.querySelectorAll('thead th').forEach(t => t.classList.remove('sorted'));
     th.classList.add('sorted');
     sortLeads();
