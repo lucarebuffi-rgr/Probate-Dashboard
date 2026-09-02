@@ -2098,7 +2098,7 @@
     "county": "Forsyth County - Probate Court",
     "caseType": "Estate",
     "dateFiled": "2026-08-31T12:00:00",
-    "status": "Open",
+    "status": "Closed",
     "decedentName": "Westbrooks, Benjamin F.",
     "petitionerName": "Westbrooks, Felicia A.",
     "isHotFlag": false,
@@ -5572,5 +5572,19 @@
     "mailingAddress": "2232 De Leon Drive, Eagle Pass, Texas 78852",
     "decedentAddress": "3333 Foster Maldonado Blvd, Eagle Pass, Texas 78852",
     "dateOfDeath": "April 27, 2025"
+  },
+  {
+    "caseDataID": "d2b438ab3a904cb487d1e362fe292474",
+    "caseNumber": "26-E-001419",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-01T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-02"
   }
 ]
