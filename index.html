@@ -479,7 +479,7 @@ function parseAddress(addr) {
     city = remaining[0]; // first = city; remaining (usually county) dropped
   }
 
-  return { street: abbreviateStreet(street), city, state, zip };
+  return { street: properCaseAddressPart(abbreviateStreet(street)), city: properCaseAddressPart(city), state, zip };
 }
 
 // ---------- ZIP-code city correction ----------
@@ -530,7 +530,7 @@ function correctedAddressParts(addr) {
   if (!parsed) return null;
   const info = parsed.zip ? zipCache[parsed.zip] : null;
   if (info) {
-    return { street: parsed.street, city: info.city || parsed.city, state: info.state || parsed.state, zip: parsed.zip };
+    return { street: parsed.street, city: properCaseAddressPart(info.city) || parsed.city, state: info.state || parsed.state, zip: parsed.zip };
   }
   return parsed;
 }
@@ -687,6 +687,25 @@ function sortLeads() {
 // misleading.
 const PLACEHOLDER_ADDRESS_PATTERN = /^(same\b|see\s+exhibit|see\s+attached|exhibit\s)/i;
 
+// Turns ALL CAPS (or all lowercase) text into normal Title Case, while
+// keeping directional abbreviations correctly uppercase (NE, not Ne) and
+// leaving anything with a digit in it untouched (so unit numbers like
+// "4B" don't get incorrectly lowercased to "4b").
+const KEEP_UPPERCASE_WORDS = new Set(['n', 's', 'e', 'w', 'ne', 'nw', 'se', 'sw']);
+
+function properCaseWord(word) {
+  if (!word) return word;
+  if (/\d/.test(word)) return word;
+  const lower = word.toLowerCase();
+  if (KEEP_UPPERCASE_WORDS.has(lower)) return word.toUpperCase();
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+function properCaseAddressPart(str) {
+  if (!str) return str;
+  return str.split(/\s+/).map(properCaseWord).join(' ');
+}
+
 function isPlaceholderAddress(raw) {
   return !!raw && PLACEHOLDER_ADDRESS_PATTERN.test(raw.trim());
 }
@@ -745,7 +764,7 @@ function render() {
       <td class="name-cell col-group-border">${rep.first || '\u2014'}</td>
       <td class="name-cell">${rep.last || '\u2014'}</td>
       ${addressCells(effectiveMailingAddress(l))}
-      <td class="date-cell">${l.caseNumber || '\u2014'}</td>
+      <td class="date-cell">${l.caseDataID ? `<a href="https://researchga.tylerhost.net/CourtRecordsSearch/ui/case/${l.caseDataID}" target="_blank" rel="noopener" style="color:var(--accent-link);">${l.caseNumber || '\u2014'}</a>` : (l.caseNumber || '\u2014')}</td>
     `;
     tbody.appendChild(tr);
   });
@@ -798,7 +817,7 @@ function exportCsv() {
     : filteredLeads;
 
   const headers = [
-    'Filed Date', 'County', 'Case Type', 'Case Number', 'Status',
+    'Filed Date', 'County', 'Case Type', 'Case Number', 'Case Link', 'Status',
     'Decedent Name', 'Decedent Street', 'Decedent City', 'Decedent State', 'Decedent Zip',
     'Personal Rep First', 'Personal Rep Last', 'Mailing Street', 'Mailing City', 'Mailing State', 'Mailing Zip',
     'Date of Death', 'Leave to Sell Flag'
@@ -808,8 +827,9 @@ function exportCsv() {
     const d = correctedAddressParts(l.decedentAddress) || {};
     const m = correctedAddressParts(effectiveMailingAddress(l)) || {};
     const rep = splitPersonalRepName(l.petitionerName);
+    const caseLink = l.caseDataID ? `https://researchga.tylerhost.net/CourtRecordsSearch/ui/case/${l.caseDataID}` : '';
     return [
-      formatDate(l.dateFiled), shortCounty(l.county), l.caseType || '', l.caseNumber || '', l.status || '',
+      formatDate(l.dateFiled), shortCounty(l.county), l.caseType || '', l.caseNumber || '', caseLink, l.status || '',
       l.decedentName || '', d.street || '', d.city || '', d.state || '', d.zip || '',
       rep.first || '', rep.last || '', m.street || '', m.city || '', m.state || '', m.zip || '',
       l.dateOfDeath || '', l.isHotFlag ? 'Yes' : ''
