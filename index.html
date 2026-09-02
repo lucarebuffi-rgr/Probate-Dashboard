@@ -362,6 +362,56 @@ function normalizeState(raw) {
   return STATE_NAMES[trimmed.toLowerCase()] || trimmed;
 }
 
+// Standard USPS street-suffix and directional abbreviations. Applied as
+// whole-word, case-insensitive replacements so "Northside" or "Portage"
+// never get mangled by a partial match on "North" or "Port".
+const STREET_ABBREVIATIONS = {
+  'Alley':'Aly','Annex':'Anx','Avenue':'Ave','Bend':'Bnd','Bluff':'Blf','Boulevard':'Blvd',
+  'Branch':'Br','Bridge':'Brg','Brook':'Brk','Bypass':'Byp','Camp':'Cp','Canyon':'Cyn',
+  'Causeway':'Cswy','Center':'Ctr','Circle':'Cir','Cliff':'Clf','Club':'Clb','Corner':'Cor',
+  'Court':'Ct','Cove':'Cv','Creek':'Crk','Crescent':'Cres','Crossing':'Xing','Curve':'Curv',
+  'Dale':'Dl','Dam':'Dm','Divide':'Dv','Drive':'Dr','Estate':'Est','Expressway':'Expy',
+  'Extension':'Ext','Falls':'Fls','Ferry':'Fry','Field':'Fld','Flat':'Flt','Ford':'Frd',
+  'Forest':'Frst','Forge':'Frg','Fork':'Frk','Fort':'Ft','Freeway':'Fwy','Garden':'Gdn',
+  'Gateway':'Gtwy','Glen':'Gln','Green':'Grn','Grove':'Grv','Harbor':'Hbr','Haven':'Hvn',
+  'Heights':'Hts','Highway':'Hwy','Hill':'Hl','Hills':'Hls','Hollow':'Holw','Inlet':'Inlt',
+  'Island':'Is','Junction':'Jct','Key':'Ky','Knoll':'Knl','Lake':'Lk','Landing':'Lndg',
+  'Lane':'Ln','Light':'Lgt','Lock':'Lck','Lodge':'Ldg','Manor':'Mnr','Meadow':'Mdw',
+  'Mill':'Ml','Mission':'Msn','Mount':'Mt','Mountain':'Mtn','Neck':'Nck','Orchard':'Orch',
+  'Overpass':'Opas','Parkway':'Pkwy','Pine':'Pne','Place':'Pl','Plain':'Pln','Plaza':'Plz',
+  'Point':'Pt','Port':'Prt','Prairie':'Pr','Ramp':'Ramp','Ranch':'Rnch','Rapid':'Rpd',
+  'Rest':'Rst','Ridge':'Rdg','River':'Riv','Road':'Rd','Route':'Rte','Shoal':'Shl',
+  'Shore':'Shr','Skyway':'Skwy','Spring':'Spg','Spur':'Spur','Square':'Sq','Station':'Sta',
+  'Stream':'Strm','Street':'St','Summit':'Smt','Terrace':'Ter','Trace':'Trce','Track':'Trak',
+  'Trafficway':'Trfy','Trail':'Trl','Tunnel':'Tunl','Turnpike':'Tpke','Union':'Un',
+  'Valley':'Vly','Viaduct':'Via','View':'Vw','Village':'Vlg','Vista':'Vis','Wall':'Wall',
+  'Well':'Wl',
+  'Northeast':'NE','Northwest':'NW','Southeast':'SE','Southwest':'SW',
+  'North':'N','South':'S','East':'E','West':'W',
+};
+
+function abbreviateStreet(street) {
+  if (!street) return street;
+  let result = street;
+  for (const [full, abbr] of Object.entries(STREET_ABBREVIATIONS)) {
+    result = result.replace(new RegExp(`\\b${full}\\b`, 'gi'), abbr);
+  }
+  return result;
+}
+
+// Detects an apartment/unit designator, whether it shows up embedded in
+// the street ("123 Main St Apt 4B") or as its own comma-separated segment
+// ("123 Main St, Apt 4B, Atlanta...").
+const APARTMENT_PATTERN = /\b(apt|apartment|unit|ste|suite)\b\.?\s*\S*|#\s*\S+/i;
+
+function isApartmentSegment(segment) {
+  return /^\s*(apt|apartment|unit|ste|suite)\b/i.test(segment) || /^\s*#/.test(segment);
+}
+
+function isApartmentAddress(rawAddr) {
+  return !!rawAddr && APARTMENT_PATTERN.test(rawAddr);
+}
+
 // Counties this register covers. Used only to disambiguate addresses that
 // have just ONE word between the street and the state (e.g. "123 Main St,
 // Fulton, GA 30349") — in the real data, that lone word is sometimes the
@@ -388,18 +438,26 @@ function parseAddress(addr) {
   }
 
   let parts = rest.split(',').map(p => p.trim()).filter(Boolean);
-  const street = parts.length > 0 ? parts[0] : rest;
-  const middleParts = parts.slice(1);
+  let street = parts.length > 0 ? parts[0] : rest;
+  let remaining = parts.slice(1);
 
-  let city = '';
-  if (middleParts.length === 1) {
-    // Ambiguous: could be city, could be a county with city left blank.
-    city = KNOWN_COUNTIES.has(middleParts[0].toLowerCase()) ? '' : middleParts[0];
-  } else if (middleParts.length >= 2) {
-    city = middleParts[0]; // first = city; remaining (usually county) dropped
+  // If the very next segment is an apartment/unit designator (e.g. "Apt.
+  // 6" showing up as its own comma-separated piece), fold it into the
+  // street line rather than mistaking it for the city.
+  if (remaining.length > 0 && isApartmentSegment(remaining[0])) {
+    street = street + ' ' + remaining[0];
+    remaining = remaining.slice(1);
   }
 
-  return { street, city, state, zip };
+  let city = '';
+  if (remaining.length === 1) {
+    // Ambiguous: could be city, could be a county with city left blank.
+    city = KNOWN_COUNTIES.has(remaining[0].toLowerCase()) ? '' : remaining[0];
+  } else if (remaining.length >= 2) {
+    city = remaining[0]; // first = city; remaining (usually county) dropped
+  }
+
+  return { street: abbreviateStreet(street), city, state, zip };
 }
 
 // ---------- ZIP-code city correction ----------
@@ -455,21 +513,35 @@ function correctedAddressParts(addr) {
   return parsed;
 }
 
-// Court data stores names as "Last, First Middle" — split on the first
-// comma. If a name has no comma (rare, but happens), fall back to
-// treating the last word as the last name.
+// Court data stores names as "Last, First Middle" (and sometimes a
+// suffix after a second comma, e.g. "Smith, John, Jr"). We only want the
+// first name (dropping any middle name/initial) and the last name, each
+// with simple proper capitalization (first letter up, rest lowercase).
+function properCase(word) {
+  if (!word) return '';
+  const cleaned = word.replace(/[.,]+$/, '');
+  return cleaned.charAt(0).toUpperCase() + cleaned.slice(1).toLowerCase();
+}
+
 function splitPersonalRepName(fullName) {
   if (!fullName) return { first: '', last: '' };
+
   const commaIndex = fullName.indexOf(',');
+  let last = '', firstChunk = '';
+
   if (commaIndex !== -1) {
-    return {
-      last: fullName.slice(0, commaIndex).trim(),
-      first: fullName.slice(commaIndex + 1).trim(),
-    };
+    last = fullName.slice(0, commaIndex).trim();
+    firstChunk = fullName.slice(commaIndex + 1).trim();
+    const secondComma = firstChunk.indexOf(','); // drop a trailing suffix like ", Jr"
+    if (secondComma !== -1) firstChunk = firstChunk.slice(0, secondComma).trim();
+  } else {
+    const parts = fullName.trim().split(/\s+/);
+    if (parts.length === 1) { firstChunk = parts[0]; }
+    else { last = parts[parts.length - 1]; firstChunk = parts.slice(0, -1).join(' '); }
   }
-  const parts = fullName.trim().split(/\s+/);
-  if (parts.length === 1) return { first: parts[0], last: '' };
-  return { first: parts.slice(0, -1).join(' '), last: parts[parts.length - 1] };
+
+  const firstWord = firstChunk.split(/\s+/)[0] || ''; // drop middle name/initial
+  return { first: properCase(firstWord), last: properCase(last) };
 }
 
 function formatDate(iso) {
@@ -536,6 +608,7 @@ function applyFilters() {
   const searchVal = document.getElementById('search-box').value.trim().toLowerCase();
 
   filteredLeads = allLeads.filter(l => {
+    if (isApartmentAddress(l.decedentAddress)) return false; // decedent didn't own real property here
     const filedDate = isoDateOnly(l.dateFiled);
     if (fromVal && filedDate && filedDate < fromVal) return false;
     if (toVal && filedDate && filedDate > toVal) return false;
