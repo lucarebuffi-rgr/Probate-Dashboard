@@ -710,8 +710,19 @@ function isPlaceholderAddress(raw) {
   return !!raw && PLACEHOLDER_ADDRESS_PATTERN.test(raw.trim());
 }
 
+function isUsableMailingAddress(raw) {
+  if (isPlaceholderAddress(raw)) return false;
+  const parsed = parseAddress(raw);
+  if (!parsed || !parsed.street || !parsed.zip) return false;
+  // Catches nonsense entries like street="Atlanta" city="Atlanta" — a
+  // clear sign the form didn't have a real street written on it, even
+  // though a zip happens to be present.
+  if (parsed.city && parsed.street.toLowerCase() === parsed.city.toLowerCase()) return false;
+  return true;
+}
+
 function effectiveMailingAddress(l) {
-  return isPlaceholderAddress(l.mailingAddress) ? (l.decedentAddress || null) : l.mailingAddress;
+  return isUsableMailingAddress(l.mailingAddress) ? l.mailingAddress : (l.decedentAddress || null);
 }
 
 function hasUsableDecedentAddress(l) {
