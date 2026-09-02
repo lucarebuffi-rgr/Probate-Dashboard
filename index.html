@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Georgia Probate Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F2EA;
+    --paper-raised: #FFFFFF;
+    --ink: #23221D;
+    --ink-soft: #5B584E;
+    --rule: #DCD5C4;
+    --rule-strong: #B8AF98;
+    --accent-flag: #A2402C;
+    --accent-flag-bg: #F4E4DE;
+    --accent-county: #2F5233;
+    --accent-county-bg: #E4EADD;
+    --accent-link: #1D4E5F;
+    --shadow: 0 1px 2px rgba(35,34,29,0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .masthead {
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 28px 32px 22px;
+    background: var(--paper);
+  }
+
+  .masthead-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .masthead-stats {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+
+  .masthead-stats strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 32px;
+  }
+
+  .toolbar-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .field-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .field-group label {
+    font-size: 12px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  input[type="date"], input[type="search"], select {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    padding: 6px 9px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    background: var(--paper-raised);
+    color: var(--ink);
+  }
+
+  input[type="search"] { width: 220px; }
+
+  .county-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    font-size: 12.5px;
+    padding: 5px 11px;
+    border-radius: 14px;
+    border: 1px solid var(--rule-strong);
+    background: var(--paper-raised);
+    cursor: pointer;
+    color: var(--ink-soft);
+    user-select: none;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+  }
+
+  .chip.active {
+    background: var(--accent-county);
+    border-color: var(--accent-county);
+    color: white;
+  }
+
+  .toggle-flag {
+    font-size: 12.5px;
+    padding: 5px 11px;
+    border-radius: 14px;
+    border: 1px solid var(--rule-strong);
+    background: var(--paper-raised);
+    cursor: pointer;
+    color: var(--ink-soft);
+    user-select: none;
+    transition: background 0.12s, color 0.12s, border-color 0.12s;
+  }
+
+  .toggle-flag.active {
+    background: var(--accent-flag);
+    border-color: var(--accent-flag);
+    color: white;
+  }
+
+  .spacer { flex: 1; }
+
+  .result-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 32px 60px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    padding: 8px 12px;
+    border-bottom: 1.5px solid var(--rule-strong);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  thead th:hover { color: var(--ink); }
+
+  thead th .sort-arrow {
+    opacity: 0.4;
+    margin-left: 3px;
+    font-size: 10px;
+  }
+
+  thead th.sorted .sort-arrow { opacity: 1; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  tbody tr:hover {
+    background: var(--paper-raised);
+  }
+
+  td {
+    padding: 11px 12px;
+    vertical-align: top;
+    font-size: 13.5px;
+  }
+
+  td.date-cell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  td.name-cell {
+    font-weight: 500;
+  }
+
+  td.address-cell {
+    color: var(--ink-soft);
+    max-width: 240px;
+  }
+
+  .no-address {
+    color: var(--rule-strong);
+    font-style: italic;
+  }
+
+  .county-tag {
+    display: inline-block;
+    font-size: 11.5px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--accent-county-bg);
+    color: var(--accent-county);
+    white-space: nowrap;
+  }
+
+  .flag-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--accent-flag-bg);
+    color: var(--accent-flag);
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+
+  .copy-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--accent-link);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 3px;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  tr:hover .copy-btn { opacity: 1; }
+
+  .copy-btn:hover { text-decoration: underline; }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--ink-soft);
+  }
+
+  .empty-state h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 900px) {
+    .masthead, .toolbar, main { padding-left: 16px; padding-right: 16px; }
+    input[type="search"] { width: 140px; }
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tbody tr {
+      background: var(--paper-raised);
+      margin-bottom: 10px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 10px 4px;
+    }
+    td { padding: 6px 12px; }
+    td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--rule-strong);
+      margin-bottom: 2px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <h1>Georgia Probate Register</h1>
+    <div class="masthead-stats" id="masthead-stats">Loading&hellip;</div>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="field-group">
+      <label for="from-date">Filed from</label>
+      <input type="date" id="from-date">
+    </div>
+    <div class="field-group">
+      <label for="to-date">to</label>
+      <input type="date" id="to-date">
+    </div>
+    <div class="field-group county-chips" id="county-chips"></div>
+    <div class="field-group">
+      <span class="toggle-flag" id="hot-flag-toggle">Leave-to-sell only</span>
+    </div>
+    <div class="field-group">
+      <span class="toggle-flag" id="has-address-toggle">Has address only</span>
+    </div>
+    <input type="search" id="search-box" placeholder="Search name or case #">
+    <div class="spacer"></div>
+    <div class="result-count" id="result-count"></div>
+  </div>
+</div>
+
+<main>
+  <table id="leads-table">
+    <thead>
+      <tr>
+        <th data-sort="dateFiled">Filed <span class="sort-arrow">&#9660;</span></th>
+        <th data-sort="county">County <span class="sort-arrow">&#9660;</span></th>
+        <th data-sort="decedentName">Decedent <span class="sort-arrow">&#9660;</span></th>
+        <th>Decedent address</th>
+        <th data-sort="petitionerName">Personal rep. <span class="sort-arrow">&#9660;</span></th>
+        <th>Mailing address</th>
+        <th data-sort="caseNumber">Case # <span class="sort-arrow">&#9660;</span></th>
+      </tr>
+    </thead>
+    <tbody id="leads-body"></tbody>
+  </table>
+  <div class="empty-state" id="empty-state" style="display:none;">
+    <h2>No filings match these filters</h2>
+    <p>Try widening the date range or clearing a filter.</p>
+  </div>
+</main>
+
+<script>
+let allLeads = [];
+let filteredLeads = [];
+let sortField = 'dateFiled';
+let sortDir = 'desc';
+let activeCounties = new Set();
+let hotFlagOnly = false;
+let hasAddressOnly = false;
+
+function shortCounty(full) {
+  if (!full) return 'Unknown';
+  return full
+    .replace(' Probate Court', '')
+    .replace(' County', '')
+    .replace(' - Superior Court', ' (Superior)')
+    .trim();
+}
+
+function formatDate(iso) {
+  if (!iso) return '\u2014';
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function isoDateOnly(iso) {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (isNaN(d)) return null;
+  return d.toISOString().slice(0, 10);
+}
+
+async function loadLeads() {
+  try {
+    const res = await fetch('leads.json?t=' + Date.now());
+    allLeads = await res.json();
+  } catch (e) {
+    document.getElementById('masthead-stats').textContent = 'Could not load leads.json';
+    return;
+  }
+
+  buildCountyChips();
+  setDefaultDateRange();
+  applyFilters();
+}
+
+function buildCountyChips() {
+  const counties = [...new Set(allLeads.map(l => l.county).filter(Boolean))].sort();
+  const container = document.getElementById('county-chips');
+  container.innerHTML = '';
+  counties.forEach(c => {
+    const chip = document.createElement('span');
+    chip.className = 'chip';
+    chip.textContent = shortCounty(c);
+    chip.dataset.county = c;
+    chip.addEventListener('click', () => {
+      if (activeCounties.has(c)) {
+        activeCounties.delete(c);
+        chip.classList.remove('active');
+      } else {
+        activeCounties.add(c);
+        chip.classList.add('active');
+      }
+      applyFilters();
+    });
+    container.appendChild(chip);
+  });
+}
+
+function setDefaultDateRange() {
+  // Default to the last 7 days, since that's the typical daily-review window.
+  const dates = allLeads.map(l => isoDateOnly(l.dateFiled)).filter(Boolean).sort();
+  if (dates.length === 0) return;
+  const latest = dates[dates.length - 1];
+  const latestDate = new Date(latest);
+  const weekAgo = new Date(latestDate);
+  weekAgo.setDate(weekAgo.getDate() - 7);
+  document.getElementById('to-date').value = latest;
+  document.getElementById('from-date').value = weekAgo.toISOString().slice(0, 10);
+}
+
+function applyFilters() {
+  const fromVal = document.getElementById('from-date').value;
+  const toVal = document.getElementById('to-date').value;
+  const searchVal = document.getElementById('search-box').value.trim().toLowerCase();
+
+  filteredLeads = allLeads.filter(l => {
+    const filedDate = isoDateOnly(l.dateFiled);
+    if (fromVal && filedDate && filedDate < fromVal) return false;
+    if (toVal && filedDate && filedDate > toVal) return false;
+    if (activeCounties.size > 0 && !activeCounties.has(l.county)) return false;
+    if (hotFlagOnly && !l.isHotFlag) return false;
+    if (hasAddressOnly && !l.mailingAddress) return false;
+    if (searchVal) {
+      const haystack = [l.decedentName, l.petitionerName, l.caseNumber]
+        .filter(Boolean).join(' ').toLowerCase();
+      if (!haystack.includes(searchVal)) return false;
+    }
+    return true;
+  });
+
+  sortLeads();
+  render();
+}
+
+function sortLeads() {
+  filteredLeads.sort((a, b) => {
+    let av = a[sortField] || '';
+    let bv = b[sortField] || '';
+    if (sortField === 'dateFiled') {
+      av = new Date(av || 0).getTime();
+      bv = new Date(bv || 0).getTime();
+    } else {
+      av = String(av).toLowerCase();
+      bv = String(bv).toLowerCase();
+    }
+    if (av < bv) return sortDir === 'asc' ? -1 : 1;
+    if (av > bv) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+}
+
+function render() {
+  const tbody = document.getElementById('leads-body');
+  const emptyState = document.getElementById('empty-state');
+  tbody.innerHTML = '';
+
+  if (filteredLeads.length === 0) {
+    emptyState.style.display = 'block';
+    document.getElementById('leads-table').style.display = 'none';
+  } else {
+    emptyState.style.display = 'none';
+    document.getElementById('leads-table').style.display = 'table';
+  }
+
+  filteredLeads.forEach(l => {
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `
+      <td class="date-cell" data-label="Filed">${formatDate(l.dateFiled)}</td>
+      <td data-label="County"><span class="county-tag">${shortCounty(l.county)}</span>${l.isHotFlag ? '<span class="flag-tag">Leave to sell</span>' : ''}</td>
+      <td class="name-cell" data-label="Decedent">${l.decedentName || '\u2014'}</td>
+      <td class="address-cell" data-label="Decedent address">${renderAddress(l.decedentAddress)}</td>
+      <td class="name-cell" data-label="Personal rep.">${l.petitionerName || '\u2014'}</td>
+      <td class="address-cell" data-label="Mailing address">${renderAddress(l.mailingAddress)}</td>
+      <td class="date-cell" data-label="Case #">${l.caseNumber || '\u2014'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  tbody.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(btn.dataset.address);
+      btn.textContent = 'Copied';
+      setTimeout(() => { btn.textContent = 'Copy'; }, 1200);
+    });
+  });
+
+  document.getElementById('result-count').textContent =
+    `${filteredLeads.length} of ${allLeads.length} filings`;
+
+  const withAddress = allLeads.filter(l => l.mailingAddress).length;
+  document.getElementById('masthead-stats').innerHTML =
+    `<strong>${allLeads.length}</strong> filings on record &middot; <strong>${withAddress}</strong> with an address found`;
+}
+
+function renderAddress(addr) {
+  if (!addr) return '<span class="no-address">Not found yet</span>';
+  const escaped = addr.replace(/"/g, '&quot;');
+  return `${addr}<br><button class="copy-btn" data-address="${escaped}">Copy</button>`;
+}
+
+document.getElementById('from-date').addEventListener('change', applyFilters);
+document.getElementById('to-date').addEventListener('change', applyFilters);
+document.getElementById('search-box').addEventListener('input', applyFilters);
+
+document.getElementById('hot-flag-toggle').addEventListener('click', function() {
+  hotFlagOnly = !hotFlagOnly;
+  this.classList.toggle('active', hotFlagOnly);
+  applyFilters();
+});
+
+document.getElementById('has-address-toggle').addEventListener('click', function() {
+  hasAddressOnly = !hasAddressOnly;
+  this.classList.toggle('active', hasAddressOnly);
+  applyFilters();
+});
+
+document.querySelectorAll('thead th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const field = th.dataset.sort;
+    if (sortField === field) {
+      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortField = field;
+      sortDir = field === 'dateFiled' ? 'desc' : 'asc';
+    }
+    document.querySelectorAll('thead th').forEach(t => t.classList.remove('sorted'));
+    th.classList.add('sorted');
+    sortLeads();
+    render();
+  });
+});
+
+loadLeads();
+</script>
+
+</body>
+</html>
