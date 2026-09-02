@@ -643,7 +643,7 @@ function applyFilters() {
 
   filteredLeads = allLeads.filter(l => {
     if (isApartmentAddress(l.decedentAddress)) return false; // decedent didn't own real property here
-    if (!l.decedentAddress) return false; // no address found yet (blurry doc, missing petition, etc.)
+    if (!hasUsableDecedentAddress(l)) return false; // no usable street+zip found yet (blurry doc, vague entry like "Orange County, California", missing petition, etc.)
     const filedDate = isoDateOnly(l.dateFiled);
     if (fromVal && filedDate && filedDate < fromVal) return false;
     if (toVal && filedDate && filedDate > toVal) return false;
@@ -677,6 +677,15 @@ function sortLeads() {
     if (av > bv) return sortDir === 'asc' ? 1 : -1;
     return 0;
   });
+}
+
+function hasUsableDecedentAddress(l) {
+  const parsed = correctedAddressParts(l.decedentAddress);
+  // Require both a street AND a zip to count as a real, usable address —
+  // this filters out vague entries like "Orange County, California" or
+  // "SAME" (petitioner just wrote "same as above") that have some text
+  // but nothing actually actionable.
+  return !!(parsed && parsed.street && parsed.zip);
 }
 
 function addressCells(addr) {
