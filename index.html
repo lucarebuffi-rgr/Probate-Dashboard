@@ -715,16 +715,16 @@ function effectiveMailingAddress(l) {
 }
 
 function hasUsableDecedentAddress(l) {
-  const parsed = correctedAddressParts(l.decedentAddress);
-  // Require both a street AND a zip to count as a real, usable address —
-  // this filters out vague entries like "Orange County, California" or
-  // "SAME" (petitioner just wrote "same as above") that have some text
-  // but nothing actually actionable.
-  return !!(parsed && parsed.street && parsed.zip);
+  return !!usableAddressParts(l.decedentAddress);
+}
+
+function usableAddressParts(addr) {
+  const parsed = correctedAddressParts(addr);
+  return (parsed && parsed.street && parsed.zip) ? parsed : null;
 }
 
 function addressCells(addr) {
-  const parsed = correctedAddressParts(addr);
+  const parsed = usableAddressParts(addr);
   if (!parsed) {
     return `<td class="addr-part wrap-cell col-group-border no-address">Not found yet</td><td class="addr-part wrap-cell no-address">&mdash;</td><td class="addr-part no-address">&mdash;</td><td class="zip-cell no-address">&mdash;</td>`;
   }
@@ -824,8 +824,8 @@ function exportCsv() {
   ];
 
   const rows = rowsToExport.map(l => {
-    const d = correctedAddressParts(l.decedentAddress) || {};
-    const m = correctedAddressParts(effectiveMailingAddress(l)) || {};
+    const d = usableAddressParts(l.decedentAddress) || {};
+    const m = usableAddressParts(effectiveMailingAddress(l)) || {};
     const rep = splitPersonalRepName(l.petitionerName);
     const caseLink = l.caseDataID ? `https://researchga.tylerhost.net/CourtRecordsSearch/ui/case/${l.caseDataID}` : '';
     return [
