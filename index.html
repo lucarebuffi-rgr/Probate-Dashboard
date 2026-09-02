@@ -144,6 +144,13 @@
     background: var(--accent-link);
     color: white;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .export-btn.scrape-btn {
+    border-color: var(--accent-county);
+    background: var(--accent-county);
   }
 
   .export-btn:hover { opacity: 0.9; }
@@ -273,6 +280,7 @@
       <span class="toggle-flag" id="has-address-toggle">Has address only</span>
       <input type="search" id="search-box" placeholder="Search name or case #">
       <div class="spacer"></div>
+      <a class="export-btn scrape-btn" href="scrapenow://run" title="Requires one-time setup on your Mac — see README">Scrape New Records</a>
       <button class="export-btn" id="export-btn">Export CSV</button>
       <div class="result-count" id="result-count"></div>
     </div>
