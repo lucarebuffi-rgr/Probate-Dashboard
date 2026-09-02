@@ -239,6 +239,18 @@
     white-space: nowrap;
   }
 
+  .new-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: #E3C77A;
+    color: #5C4A12;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+
   input[type="checkbox"] {
     width: 15px;
     height: 15px;
@@ -278,6 +290,7 @@
       <div class="field-group county-chips" id="county-chips"></div>
       <span class="toggle-flag" id="hot-flag-toggle">Leave-to-sell only</span>
       <span class="toggle-flag" id="has-address-toggle">Has address only</span>
+      <span class="toggle-flag" id="new-only-toggle">New only</span>
       <input type="search" id="search-box" placeholder="Search name or case #">
       <div class="spacer"></div>
       <a class="export-btn scrape-btn" href="scrapenow://run" title="Requires one-time setup on your Mac — see README">Scrape New Records</a>
@@ -334,6 +347,7 @@ let sortDir = 'desc';
 let activeCounties = new Set();
 let hotFlagOnly = false;
 let hasAddressOnly = false;
+let newOnly = false;
 let selectedIds = new Set();
 
 // ---------- County name cleanup ----------
@@ -552,6 +566,18 @@ function splitPersonalRepName(fullName) {
   return { first: properCase(firstWord), last: properCase(last) };
 }
 
+function todayLocalIso() {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function isNewLead(l) {
+  return !!l.firstSeenDate && l.firstSeenDate === todayLocalIso();
+}
+
 function formatDate(iso) {
   if (!iso) return '\u2014';
   const d = new Date(iso);
@@ -617,12 +643,14 @@ function applyFilters() {
 
   filteredLeads = allLeads.filter(l => {
     if (isApartmentAddress(l.decedentAddress)) return false; // decedent didn't own real property here
+    if (!l.decedentAddress) return false; // no address found yet (blurry doc, missing petition, etc.)
     const filedDate = isoDateOnly(l.dateFiled);
     if (fromVal && filedDate && filedDate < fromVal) return false;
     if (toVal && filedDate && filedDate > toVal) return false;
     if (activeCounties.size > 0 && !activeCounties.has(l.county)) return false;
     if (hotFlagOnly && !l.isHotFlag) return false;
     if (hasAddressOnly && !l.mailingAddress) return false;
+    if (newOnly && !isNewLead(l)) return false;
     if (searchVal) {
       const haystack = [l.decedentName, l.petitionerName, l.caseNumber].filter(Boolean).join(' ').toLowerCase();
       if (!haystack.includes(searchVal)) return false;
@@ -686,7 +714,7 @@ function render() {
     tr.innerHTML = `
       <td class="checkbox-cell"><input type="checkbox" class="row-checkbox" data-id="${l.caseDataID}" ${selectedIds.has(l.caseDataID) ? 'checked' : ''}></td>
       <td class="date-cell">${formatDate(l.dateFiled)}</td>
-      <td><span class="county-tag">${shortCounty(l.county)}</span>${l.isHotFlag ? '<span class="flag-tag">Leave to sell</span>' : ''}</td>
+      <td><span class="county-tag">${shortCounty(l.county)}</span>${isNewLead(l) ? '<span class="new-tag">New</span>' : ''}${l.isHotFlag ? '<span class="flag-tag">Leave to sell</span>' : ''}</td>
       <td class="name-cell">${l.decedentName || '\u2014'}</td>
       ${addressCells(l.decedentAddress)}
       <td class="name-cell col-group-border">${rep.first || '\u2014'}</td>
@@ -799,6 +827,12 @@ document.getElementById('hot-flag-toggle').addEventListener('click', function() 
 document.getElementById('has-address-toggle').addEventListener('click', function() {
   hasAddressOnly = !hasAddressOnly;
   this.classList.toggle('active', hasAddressOnly);
+  applyFilters();
+});
+
+document.getElementById('new-only-toggle').addEventListener('click', function() {
+  newOnly = !newOnly;
+  this.classList.toggle('active', newOnly);
   applyFilters();
 });
 
