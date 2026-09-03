@@ -3,22 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Georgia Probate Register</title>
+<title>Georgia Daily Probates</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F5F2EA;
-    --paper-raised: #FFFFFF;
-    --ink: #23221D;
-    --ink-soft: #5B584E;
-    --rule: #DCD5C4;
-    --rule-strong: #B8AF98;
-    --accent-flag: #A2402C;
-    --accent-flag-bg: #F4E4DE;
-    --accent-county: #2F5233;
-    --accent-county-bg: #E4EADD;
-    --accent-link: #1D4E5F;
+    --bg: #0E1420;
+    --surface: #171F30;
+    --surface-hover: #1E2740;
+    --text: #E7EAF2;
+    --text-soft: #8B93AB;
+    --border: #262F45;
+    --border-strong: #3A4560;
+    --accent-gold: #F0B93B;
+    --accent-gold-text: #241A03;
+    --accent-blue: #4C8DFF;
+    --accent-county-bg: #26314A;
+    --accent-county-text: #B9C4DE;
+    --accent-flag-bg: #C2680A;
+    --new-bg: #2563EB;
   }
 
   * { box-sizing: border-box; }
@@ -26,52 +29,59 @@
   html, body {
     margin: 0;
     padding: 0;
-    background: var(--paper);
-    color: var(--ink);
+    background: var(--bg);
+    color: var(--text);
     font-family: 'Inter', -apple-system, sans-serif;
     font-size: 15px;
     line-height: 1.5;
   }
 
   .masthead {
-    border-bottom: 1px solid var(--rule-strong);
-    padding: 28px 32px 22px;
-    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 32px;
+    background: var(--surface);
   }
 
   .masthead-inner {
     max-width: 1600px;
     margin: 0 auto;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 12px;
   }
 
+  .brand { display: flex; align-items: center; gap: 12px; }
+
+  #logo-img { height: 54px; width: auto; }
+
   h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
     margin: 0;
     letter-spacing: -0.01em;
+    color: var(--text);
   }
+
+  .masthead-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 
   .masthead-stats {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 13px;
-    color: var(--ink-soft);
+    color: var(--text-soft);
     text-align: right;
   }
 
-  .masthead-stats strong { color: var(--ink); font-weight: 500; }
+  .masthead-stats strong { color: var(--text); font-weight: 600; }
 
   .toolbar {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
     padding: 14px 32px;
   }
 
@@ -88,41 +98,44 @@
 
   .field-group { display: flex; align-items: center; gap: 8px; }
 
-  .field-group label { font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+  .field-group label { font-size: 12px; color: var(--text-soft); white-space: nowrap; }
 
   input[type="date"], input[type="search"], select {
     font-family: 'Inter', sans-serif;
     font-size: 13.5px;
     padding: 6px 9px;
-    border: 1px solid var(--rule-strong);
-    border-radius: 3px;
-    background: var(--paper-raised);
-    color: var(--ink);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
   }
 
+  input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8); }
+
   input[type="search"] { width: 220px; }
+  input[type="search"]::placeholder { color: var(--text-soft); }
 
   .chip, .toggle-flag {
     font-size: 12.5px;
-    padding: 5px 11px;
-    border-radius: 14px;
-    border: 1px solid var(--rule-strong);
-    background: var(--paper-raised);
+    padding: 5px 12px;
+    border-radius: 16px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg);
     cursor: pointer;
-    color: var(--ink-soft);
+    color: var(--text-soft);
     user-select: none;
     transition: background 0.12s, color 0.12s, border-color 0.12s;
   }
 
   .chip.active {
-    background: var(--accent-county);
-    border-color: var(--accent-county);
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
     color: white;
   }
 
   .toggle-flag.active {
-    background: var(--accent-flag);
-    border-color: var(--accent-flag);
+    background: var(--new-bg);
+    border-color: var(--new-bg);
     color: white;
   }
 
@@ -131,17 +144,17 @@
   .result-count {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 12.5px;
-    color: var(--ink-soft);
+    color: var(--text-soft);
   }
 
   .export-btn {
     font-family: 'Inter', sans-serif;
     font-size: 13px;
-    font-weight: 500;
-    padding: 7px 14px;
-    border-radius: 3px;
-    border: 1px solid var(--accent-link);
-    background: var(--accent-link);
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--accent-blue);
+    background: var(--accent-blue);
     color: white;
     cursor: pointer;
     text-decoration: none;
@@ -149,16 +162,17 @@
   }
 
   .export-btn.scrape-btn {
-    border-color: var(--accent-county);
-    background: var(--accent-county);
+    border-color: var(--accent-gold);
+    background: var(--accent-gold);
+    color: var(--accent-gold-text);
   }
 
-  .export-btn:hover { opacity: 0.9; }
+  .export-btn:hover { opacity: 0.88; }
 
   .export-btn:disabled {
-    background: var(--paper-raised);
-    color: var(--rule-strong);
-    border-color: var(--rule);
+    background: var(--surface);
+    color: var(--text-soft);
+    border-color: var(--border);
     cursor: default;
   }
 
@@ -174,7 +188,7 @@
   thead tr.group-row th {
     font-size: 11px;
     font-weight: 500;
-    color: var(--ink-soft);
+    color: var(--text-soft);
     text-align: center;
     padding: 4px 8px 2px;
     border-bottom: none;
@@ -183,25 +197,25 @@
   thead tr.field-row th {
     text-align: left;
     font-size: 12px;
-    font-weight: 500;
-    color: var(--ink-soft);
+    font-weight: 600;
+    color: var(--text-soft);
     padding: 4px 10px 8px;
-    border-bottom: 1.5px solid var(--rule-strong);
+    border-bottom: 1.5px solid var(--border-strong);
     cursor: pointer;
     white-space: nowrap;
   }
 
   thead tr.field-row th.no-sort { cursor: default; }
-  thead tr.field-row th:hover:not(.no-sort) { color: var(--ink); }
+  thead tr.field-row th:hover:not(.no-sort) { color: var(--text); }
 
   thead th .sort-arrow { opacity: 0.4; margin-left: 3px; font-size: 10px; }
   thead th.sorted .sort-arrow { opacity: 1; }
 
-  .col-group-border { border-left: 1px solid var(--rule); }
+  .col-group-border { border-left: 1px solid var(--border); }
 
-  tbody tr { border-bottom: 1px solid var(--rule); }
-  tbody tr:hover { background: var(--paper-raised); }
-  tbody tr.selected { background: #EFEAD8; }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:hover { background: var(--surface-hover); }
+  tbody tr.selected { background: #24304C; }
 
   td {
     padding: 10px;
@@ -212,29 +226,31 @@
 
   td.wrap-cell { white-space: normal; max-width: 200px; }
   td.checkbox-cell { padding-left: 14px; padding-right: 4px; }
-  td.date-cell { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft); }
+  td.date-cell { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--text-soft); }
   td.name-cell { font-weight: 500; white-space: normal; max-width: 180px; }
-  td.addr-part { color: var(--ink-soft); }
-  td.zip-cell { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft); }
+  td.addr-part { color: var(--text-soft); }
+  td.zip-cell { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--text-soft); }
 
-  .no-address { color: var(--rule-strong); font-style: italic; }
+  .no-address { color: var(--text-soft); font-style: italic; opacity: 0.7; }
 
   .county-tag {
     display: inline-block;
     font-size: 11.5px;
-    padding: 2px 8px;
-    border-radius: 3px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 12px;
     background: var(--accent-county-bg);
-    color: var(--accent-county);
+    color: var(--accent-county-text);
   }
 
   .flag-tag {
     display: inline-block;
     font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 3px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 12px;
     background: var(--accent-flag-bg);
-    color: var(--accent-flag);
+    color: white;
     margin-left: 6px;
     white-space: nowrap;
   }
@@ -242,11 +258,11 @@
   .new-tag {
     display: inline-block;
     font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 3px;
-    background: #E3C77A;
-    color: #5C4A12;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: var(--new-bg);
+    color: white;
     margin-left: 6px;
     white-space: nowrap;
   }
@@ -255,11 +271,11 @@
     width: 15px;
     height: 15px;
     cursor: pointer;
-    accent-color: var(--accent-county);
+    accent-color: var(--accent-blue);
   }
 
-  .empty-state { text-align: center; padding: 80px 20px; color: var(--ink-soft); }
-  .empty-state h2 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 20px; color: var(--ink); margin-bottom: 6px; }
+  .empty-state { text-align: center; padding: 80px 20px; color: var(--text-soft); }
+  .empty-state h2 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 20px; color: var(--text); margin-bottom: 6px; }
 
   @media (max-width: 900px) {
     .masthead, .toolbar { padding-left: 16px; padding-right: 16px; }
@@ -271,8 +287,13 @@
 
 <div class="masthead">
   <div class="masthead-inner">
-    <h1>Georgia Probate Register</h1>
-    <div class="masthead-stats" id="masthead-stats">Loading&hellip;</div>
+    <div class="brand">
+      <h1>Georgia Daily Probates</h1>
+    </div>
+    <div class="masthead-right">
+      <img id="logo-img" src="logo.png" alt="" onerror="this.style.display='none'">
+      <div class="masthead-stats" id="masthead-stats">Loading&hellip;</div>
+    </div>
   </div>
 </div>
 
@@ -288,9 +309,7 @@
         <input type="date" id="to-date">
       </div>
       <div class="field-group county-chips" id="county-chips"></div>
-      <span class="toggle-flag" id="hot-flag-toggle">Leave-to-sell only</span>
-      <span class="toggle-flag" id="has-address-toggle">Has address only</span>
-      <span class="toggle-flag" id="new-only-toggle">New only</span>
+      <span class="toggle-flag" id="new-only-toggle">New Filings</span>
       <input type="search" id="search-box" placeholder="Search name or case #">
       <div class="spacer"></div>
       <a class="export-btn scrape-btn" href="scrapenow://run" title="Requires one-time setup on your Mac — see README">Scrape New Records</a>
@@ -345,8 +364,6 @@ let filteredLeads = [];
 let sortField = 'dateFiled';
 let sortDir = 'desc';
 let activeCounties = new Set();
-let hotFlagOnly = false;
-let hasAddressOnly = false;
 let newOnly = false;
 let selectedIds = new Set();
 
@@ -648,8 +665,6 @@ function applyFilters() {
     if (fromVal && filedDate && filedDate < fromVal) return false;
     if (toVal && filedDate && filedDate > toVal) return false;
     if (activeCounties.size > 0 && !activeCounties.has(l.county)) return false;
-    if (hotFlagOnly && !l.isHotFlag) return false;
-    if (hasAddressOnly && !l.mailingAddress) return false;
     if (newOnly && !isNewLead(l)) return false;
     if (searchVal) {
       const haystack = [l.decedentName, l.petitionerName, l.caseNumber].filter(Boolean).join(' ').toLowerCase();
@@ -775,7 +790,7 @@ function render() {
       <td class="name-cell col-group-border">${rep.first || '\u2014'}</td>
       <td class="name-cell">${rep.last || '\u2014'}</td>
       ${addressCells(effectiveMailingAddress(l))}
-      <td class="date-cell">${l.caseDataID ? `<a href="https://researchga.tylerhost.net/CourtRecordsSearch/ui/case/${l.caseDataID}" target="_blank" rel="noopener" style="color:var(--accent-link);">${l.caseNumber || '\u2014'}</a>` : (l.caseNumber || '\u2014')}</td>
+      <td class="date-cell">${l.caseDataID ? `<a href="https://researchga.tylerhost.net/CourtRecordsSearch/ui/case/${l.caseDataID}" target="_blank" rel="noopener" style="color:var(--accent-blue);">${l.caseNumber || '\u2014'}</a>` : (l.caseNumber || '\u2014')}</td>
     `;
     tbody.appendChild(tr);
   });
@@ -872,18 +887,6 @@ document.getElementById('select-all-checkbox').addEventListener('change', functi
     filteredLeads.forEach(l => selectedIds.delete(l.caseDataID));
   }
   render();
-});
-
-document.getElementById('hot-flag-toggle').addEventListener('click', function() {
-  hotFlagOnly = !hotFlagOnly;
-  this.classList.toggle('active', hotFlagOnly);
-  applyFilters();
-});
-
-document.getElementById('has-address-toggle').addEventListener('click', function() {
-  hasAddressOnly = !hasAddressOnly;
-  this.classList.toggle('active', hasAddressOnly);
-  applyFilters();
 });
 
 document.getElementById('new-only-toggle').addEventListener('click', function() {
