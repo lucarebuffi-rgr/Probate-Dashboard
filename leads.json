@@ -121,7 +121,7 @@
     "decedentName": null,
     "petitionerName": "Jana Joyce Kincaid",
     "isHotFlag": false,
-    "mailingAddress": "122 Pressley Ln, Ball Ground, GA 30107",
+    "mailingAddress": null,
     "decedentAddress": null,
     "dateOfDeath": null
   },
@@ -1768,7 +1768,7 @@
     "decedentName": null,
     "petitionerName": "Michael Jones",
     "isHotFlag": false,
-    "mailingAddress": "210 Princeton Court, Acworth, Georgia 30102",
+    "mailingAddress": null,
     "decedentAddress": null,
     "dateOfDeath": null
   },
@@ -2518,8 +2518,8 @@
     "decedentName": "HAYDEN, THOMAS GUY",
     "petitionerName": "John C Thomas",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": "4035 WINCHESTER WAY, LOGANVILLE, GWINNETT, GEORGIA, 30052",
+    "mailingAddress": "4121 Haralson Mill Road, Conyers, Georgia 30032",
+    "decedentAddress": "4035 Winchester Way, Loganville, Gwinnett, Georgia 30052",
     "dateOfDeath": "02/01/2026"
   },
   {
@@ -3385,7 +3385,7 @@
     "petitionerName": null,
     "isHotFlag": false,
     "mailingAddress": null,
-    "decedentAddress": "1901 ROCKY MILL DRIVE, LAWRENCEVILLE, GWINNETT, GEORGIA, 30044",
+    "decedentAddress": "1901 Rocky Mill Drive, Lawrenceville, Gwinnett, Georgia, 30044",
     "dateOfDeath": "04/19/2024"
   },
   {
@@ -6833,9 +6833,10 @@
     "decedentName": "Littlejohn, George Calvin",
     "petitionerName": "LittleJohn, Bernice",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "561 Stanton Woods Dr, Conyers, Rockdale, GA, 30094",
+    "decedentAddress": "561 Stanton Woods Dr, Conyers, Rockdale, GA, 30094",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "04-23-2016"
   },
   {
     "caseDataID": "1c5eed2c287b41b0a85923c79b051130",
@@ -6847,9 +6848,10 @@
     "decedentName": "Black, Charles Timothy",
     "petitionerName": "Black, Jane W.",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "1715 Nottingham Way, Conyers, Rockdale County, GA 30094",
+    "decedentAddress": "1715 Nottingham Way, Conyers, Rockdale County, GA 30094",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "September 21, 2025"
   },
   {
     "caseDataID": "155148be8e4641faa95c7de1fb2b16b2",
@@ -6890,9 +6892,10 @@
     "decedentName": "GORDON, LUCILLE WOODARD",
     "petitionerName": "GORDON, THOMAS GREGORY",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "406 Joseph Way, Tarpon Springs, Pinellas, FL 34689",
+    "decedentAddress": "4048 Sandy Branch Drive, Buford, Gwinnett, GA 30519",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "3/16/2018"
   },
   {
     "caseDataID": "71b55ceecf3646fa88c4dc488f6868fc",
@@ -6904,9 +6907,10 @@
     "decedentName": "STOCKS, JAMES HINES, SR",
     "petitionerName": "HINES, STEVE, SR",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "1305 Crossings Drive, Lithia Springs, Douglas, GA 30122",
+    "decedentAddress": "1419 Dulwich Court, Lawrenceville, Gwinnett, GA 30043",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "September 7, 2016"
   },
   {
     "caseDataID": "69b7cf160eb4412085ffad0d56b21a2f",
@@ -6946,9 +6950,10 @@
     "decedentName": "BAKER, JOSEPH C",
     "petitionerName": "BAKER, NIKKI MARIE",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "117 Conifer Dr., Guyton, Effingham, GA 31312",
+    "decedentAddress": "1210 Norwalk Trce, Lawrenceville, Gwinnett, GA 30043",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "August 5th, 2026"
   },
   {
     "caseDataID": "883a3d4cbab84c34bf6c8e4aab58618a",
@@ -6960,9 +6965,10 @@
     "decedentName": "Upton, George Stevens",
     "petitionerName": "Upton, Eric George",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "530 Maupas Avenue, Savannah, Georgia 31401",
+    "decedentAddress": "5345 Amberden Hall Drive, Suwannee, Gwinnett County, Georgia 30024",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "August 6, 2026"
   },
   {
     "caseDataID": "5704ba80f76d438e804fd44305e208de",
@@ -6974,9 +6980,10 @@
     "decedentName": "PICKENS, JAMES ARTIE, JR",
     "petitionerName": "PICKENS, LESLIE JAMES",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "P.O. Box 1306, Lilburn, Gwinnett, Georgia, 30048",
+    "decedentAddress": "1027 Saybrook Circle NW, Lilburn, Gwinnett, Georgia, 30047",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "August 10, 2026"
   },
   {
     "caseDataID": "22c2640e66d04cd18bf86de95402af83",
@@ -6985,12 +6992,13 @@
     "caseType": "Estate*",
     "dateFiled": "2026-09-09T16:00:00+00:00",
     "status": "Open",
-    "decedentName": null,
-    "petitionerName": null,
+    "decedentName": "Feliks Malenkiy",
+    "petitionerName": "Nelli Malenkaya",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "155 Park Meadows Dr., Lawrenceville, Gwinnett, GA, 30044",
+    "decedentAddress": "155 Park Meadows Drive, Lawrenceville, Gwinnett, GA, 30044",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "November 24, 2014"
   },
   {
     "caseDataID": "3bcc95dd6af84937b6eabd6e078a9c4c",
@@ -7004,7 +7012,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "d6089a58b1ff4277adcc639de8be6da4",
@@ -7031,9 +7040,10 @@
     "decedentName": "CARMAN, NANCY KEHOE",
     "petitionerName": "CARMAN, THERON FREDERICK, JR",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "2858 Colony Circle, Snellville, Gwinnett, GA 30078",
+    "decedentAddress": "2858 Colony Circle, Snellville, Gwinnett, GA 30078",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "June 10, 2026"
   },
   {
     "caseDataID": "1509dcf1806b453399a8981b1d10f8a5",
@@ -7045,9 +7055,10 @@
     "decedentName": "BUTLER, THEOTUS",
     "petitionerName": "BUTLER, SONYA RENEE",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "10 Nye Square, Brockton, Plymouth, MA 02301",
+    "decedentAddress": "4010 Hogans Mill Lane, Loganville, Gwinnett, GA 30052",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "May 11th, 2026"
   },
   {
     "caseDataID": "cab6d033a5ba48719f45fcf206e0dd82",
@@ -7059,9 +7070,10 @@
     "decedentName": "COLLYMORE, NICOLE C",
     "petitionerName": "White, Maurice",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "3450 Jones Mill Rd Apt 914, Norcross, Gwinnett, Ga, 30092",
+    "decedentAddress": "3450 Jones Mill Rd Apt 914, Norcross, Gwinnett, Ga, 30092",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "Jan 11 2026"
   },
   {
     "caseDataID": "7de19c6c1d5a461a8af38449dd9310c4",
@@ -7101,9 +7113,10 @@
     "decedentName": "COOPER, MILESTON",
     "petitionerName": "COOPER, MARTIN",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "2433 turnberry glenn Walk, Snellville, Gwinnett County, GA, 30078",
+    "decedentAddress": "2433 turnberry glenn Walk, Snellville, Gwinnett County, GA, 30078",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "January 16th, 2026"
   },
   {
     "caseDataID": "b8f3be48789c4f1195137e0dfbffc4f0",
@@ -7129,9 +7142,10 @@
     "decedentName": "Ferrigno, Ronald Joseph",
     "petitionerName": "Ferrigno, Deborah",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "1934 Tyler Trace, Lawrenceville, Gwinnett, GA 30043",
+    "decedentAddress": "1934 Tyler Trace, Lawrenceville, Gwinnett, GA 30043",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "July 12, 2021"
   },
   {
     "caseDataID": "06f42fed789a40fcac2bc52e8259e33a",
@@ -7143,9 +7157,10 @@
     "decedentName": "ABDULLAH, AZWIM",
     "petitionerName": "ABDULLAH, ZENEET",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "1234 Ivey Pointe Drive, Lawrenceville, Gwinnett, GA 30045",
+    "decedentAddress": "1234 Ivey Pointe Drive, Lawrenceville, Gwinnett, GA 30045",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "7/12/2019"
   },
   {
     "caseDataID": "fc3df00d46a443d6aa1b353ce79818f5",
@@ -7174,7 +7189,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "1872790e1a5a43ec9f08652bc7c504b6",
@@ -7188,7 +7204,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "d001034bbeaa4b409373839de0d8eab1",
@@ -7249,5 +7266,209 @@
     "decedentAddress": "864 White Oak Court, Lawrenceville, Gwinnett, Georgia 30046",
     "firstSeenDate": "2026-09-13",
     "dateOfDeath": "November 5, 2024"
+  },
+  {
+    "caseDataID": "fa246b020a8c4729a361f419c0f66923",
+    "caseNumber": "26-E-001480",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "FOLSOM JR, FRED OLIVER",
+    "petitionerName": "FOLSOM, TRACIE NICOLE",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15"
+  },
+  {
+    "caseDataID": "24b6964d2cb6406990516f0c734d9ead",
+    "caseNumber": "26-E-001474",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "KIM, KYUNG HO",
+    "petitionerName": "KIM, GRACE EUNHEE",
+    "isHotFlag": false,
+    "mailingAddress": "3945 Inca Street, Denver, Colorado 80211",
+    "decedentAddress": "3056 Cardinal Lake Circle, Duluth, Gwinnett County, Georgia 30096",
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": "September 18, 2025"
+  },
+  {
+    "caseDataID": "de0a607e32a34324828da987c5e57d02",
+    "caseNumber": "26-E-001475",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "TALLANT JR, ROY EDWARD",
+    "petitionerName": "TALLANT, LYNN T",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15"
+  },
+  {
+    "caseDataID": "113a6b5d96ca4f688a701704b0057e57",
+    "caseNumber": "26-E-001476",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "PRABHAKAR, ASHOK",
+    "petitionerName": "PRABHAKAR, SUDESH",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15"
+  },
+  {
+    "caseDataID": "d35e412bf54d4918a32dbe02064bb176",
+    "caseNumber": "26-E-001479",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "WALLACE, RONALD WILLIAM",
+    "petitionerName": "WALLACE, RONALD WILLIAM, JR",
+    "isHotFlag": false,
+    "mailingAddress": "2831 Brookside Run, Snellville, Gwinnett, GA 30078",
+    "decedentAddress": "2831 Brookside Run, Snellville, Gwinnett, GA 30078",
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": "August 6, 2026"
+  },
+  {
+    "caseDataID": "4dd2008406fa4adebb11a0049c858992",
+    "caseNumber": "26-E-001473",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "MALLORY, ANN WILLIAMS",
+    "petitionerName": "O'REILLY, NANCY MALLORY",
+    "isHotFlag": false,
+    "mailingAddress": "5300 LINNADINE WAY, NORCROSS, GWINNETT COUNTY, GEORGIA 30092",
+    "decedentAddress": "5300 LINNADINE WAY, NORCROSS, GWINNETT COUNTY, GEORGIA 30092",
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": "JULY 31, 2026"
+  },
+  {
+    "caseDataID": "5b42b67c706c4483bad24238b87e583e",
+    "caseNumber": "26-E-001477",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "SMITH, KARYL MALOOF",
+    "petitionerName": "GOMES, MARGO Y",
+    "isHotFlag": false,
+    "mailingAddress": "1613 Stonegate Way, Snellville, Gwinnett, GA 30078",
+    "decedentAddress": "4625 Matthews Park Dr, Gwinnett, Snellville GA 30339",
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": "July 15, 2026"
+  },
+  {
+    "caseDataID": "a76fd899e3214ba5bec4c91c5f9f28b4",
+    "caseNumber": "26-E-001478",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-14T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "DAVIS, DWAYNE MICHAEL",
+    "petitionerName": "DAVIS, BRIANNE NECOLE",
+    "isHotFlag": false,
+    "mailingAddress": "126 Monte Vista Ave, Apt. 8, Costa Mesa, Orange Co., CA 92627",
+    "decedentAddress": "2626 Fairmont Park Ct., Dacula, Gwinnett Co., GA 30019",
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": "July 3, 2026"
+  },
+  {
+    "caseDataID": "90d9af5845454f339c4199425db09bd2",
+    "caseNumber": "26-p-1809",
+    "county": "Cobb County - Probate Court",
+    "caseType": "Deceased Estates",
+    "dateFiled": "2026-09-14T14:26:55.7996678",
+    "status": "Open",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": null
+  },
+  {
+    "caseDataID": "df165b8ee6944b519fde3a0e1c68194d",
+    "caseNumber": "26-P-1807",
+    "county": "Cobb County - Probate Court",
+    "caseType": "Deceased Estates",
+    "dateFiled": "2026-09-14T14:05:02.4955331",
+    "status": "Open",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": null
+  },
+  {
+    "caseDataID": "9f69591385874a9a915fc1347b117cdf",
+    "caseNumber": "2026-ES-0532",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-14T12:00:00",
+    "status": "Open",
+    "decedentName": "Carson, Jeffrey Michael",
+    "petitionerName": "Astin, James Steven",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15"
+  },
+  {
+    "caseDataID": "f0cbaddb42994fb6ba6d0b7eb6fe30df",
+    "caseNumber": "2026-ES-0530",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-14T12:00:00",
+    "status": "Open",
+    "decedentName": "Corkhill, Douglas Kenneth",
+    "petitionerName": "Tordik, Kimberly Nanette",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15"
+  },
+  {
+    "caseDataID": "1e887a088dcc42779ce87ab533b2f533",
+    "caseNumber": "2026-ES-0529",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-14T12:00:00",
+    "status": "Open",
+    "decedentName": "Peissig, Beverly Ann",
+    "petitionerName": "Peissig, Dana",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15"
+  },
+  {
+    "caseDataID": "8e316a9a5ddb4d3b8c5de44f9cf00cb3",
+    "caseNumber": "26-P-1804",
+    "county": "Cobb County - Probate Court",
+    "caseType": "Deceased Estates",
+    "dateFiled": "2026-09-14T11:08:46.9615599",
+    "status": "Open",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": null
   }
 ]
