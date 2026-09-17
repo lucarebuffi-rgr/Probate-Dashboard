@@ -6551,9 +6551,10 @@
     "decedentName": "Stephens, Amesic F.",
     "petitionerName": "Stephens, Willie Edward",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "804 Jefferson Ct, Rockdale County, GA, 30094",
+    "decedentAddress": "804 Jefferson Ct, Conyers/Rockdale, GA, 30094",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "May 28, 2021"
   },
   {
     "caseDataID": "b6f3178e3f3243569f185fb36d947562",
@@ -6744,7 +6745,7 @@
     "petitionerName": "McCarter, Kimberly",
     "isHotFlag": false,
     "mailingAddress": null,
-    "decedentAddress": "2025 Braselton Highway, Buford, Gwinnett, Georgia, 30519",
+    "decedentAddress": "2025 Braselton Highway, Buford, Gwinnett County, Georgia 30519",
     "firstSeenDate": "2026-09-13",
     "dateOfDeath": "06/20/2022"
   },
@@ -6922,9 +6923,10 @@
     "decedentName": "Sullivan, Rose Marie",
     "petitionerName": "Nixon, Wendi R.",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "1204 Suite E Court Commerce, Georgia 30529",
+    "decedentAddress": "2565 Dawning Day Drive, Dacula, Gwinnett, Georgia, 30019",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "06/17/2025"
   },
   {
     "caseDataID": "ca1c398dcffc4e3d97dec9a83f10c484",
@@ -7099,9 +7101,10 @@
     "decedentName": "Gage, Jeannette Janneke",
     "petitionerName": "Gage, Marvin K",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-13"
+    "mailingAddress": "4055 Suwanee Dam Road, Apartment 3327, Suwanee, Gwinnett County, Georgia 30024",
+    "decedentAddress": "4055 Suwanee Dam Road, Apartment 3327, Suwanee, Gwinnett County, Georgia 30024",
+    "firstSeenDate": "2026-09-13",
+    "dateOfDeath": "February 17, 2026"
   },
   {
     "caseDataID": "1478324302e84deabda31d6aee82a58a",
@@ -7426,7 +7429,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-15"
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "f0cbaddb42994fb6ba6d0b7eb6fe30df",
@@ -7440,7 +7444,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-15"
+    "firstSeenDate": "2026-09-15",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "1e887a088dcc42779ce87ab533b2f533",
@@ -7469,6 +7474,107 @@
     "mailingAddress": null,
     "decedentAddress": null,
     "firstSeenDate": "2026-09-15",
+    "dateOfDeath": null
+  },
+  {
+    "caseDataID": "8229ed97d11c48f685788b98f87e91a6",
+    "caseNumber": "26PC-E253",
+    "county": "Rockdale Probate Court",
+    "caseType": "Letters of Administration",
+    "dateFiled": "2026-09-15T12:00:00",
+    "status": "Open",
+    "decedentName": "Cohen, Ramona Marie",
+    "petitionerName": "Cohen, Quari Rasheed",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-16"
+  },
+  {
+    "caseDataID": "cf86a564978944beb5e0390a051d66d5",
+    "caseNumber": "26PC-E254",
+    "county": "Rockdale Probate Court",
+    "caseType": "Temporary Letters of Administration",
+    "dateFiled": "2026-09-15T12:00:00",
+    "status": "Open",
+    "decedentName": "McNabb Jones, Gail Millicent",
+    "petitionerName": "Jones, Joe Lancer",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-16"
+  },
+  {
+    "caseDataID": "5a94c27c6e5e4c4e9cd7be1785223c5c",
+    "caseNumber": "26PA0047",
+    "county": "Cherokee County - Superior Court",
+    "caseType": "Permanent Administration",
+    "dateFiled": "2026-09-15T04:00:00",
+    "status": "Open",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-16"
+  },
+  {
+    "caseDataID": "9257b8ab11234ac7b9d384ca5c4dbfaa",
+    "caseNumber": "26-E-001481",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-15T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "NORMAND, HOFFARD DAVIS",
+    "petitionerName": "NORMAND, ANN B",
+    "isHotFlag": false,
+    "mailingAddress": "2855 Superior, Dacula, Gwinnett, GA 30019",
+    "decedentAddress": "2855 Superior Dr., Gwinnett, GA 30019",
+    "firstSeenDate": "2026-09-16",
+    "dateOfDeath": "April 27, 2025"
+  },
+  {
+    "caseDataID": "02989bf8bd6d4398bbdfa9fb2d2a6dbf",
+    "caseNumber": "26-P-1816",
+    "county": "Cobb County - Probate Court",
+    "caseType": "Deceased Estates",
+    "dateFiled": "2026-09-15T13:58:11.4373333",
+    "status": "Open",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-16",
+    "dateOfDeath": null
+  },
+  {
+    "caseDataID": "f0a06dfa500a40cba6e94109516d7c3e",
+    "caseNumber": "26-E-001482",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-15T12:00:00",
+    "status": "Open",
+    "decedentName": "Gary Alan Marshall",
+    "petitionerName": "Brian Douglas Marshall",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-16"
+  },
+  {
+    "caseDataID": "9d976cd08e6f4ff396167c06da7f5be6",
+    "caseNumber": "2026-ES-0533",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-15T12:00:00",
+    "status": "Open",
+    "decedentName": "Kashapov, Oleg Agzamovich",
+    "petitionerName": "Kashapov, Maya Katerina",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-16",
     "dateOfDeath": null
   }
 ]
