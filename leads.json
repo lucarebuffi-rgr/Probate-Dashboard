@@ -1644,7 +1644,7 @@
     "decedentName": "Vilomar, Enrique Logan",
     "petitionerName": "Vilomar, Anthony",
     "isHotFlag": false,
-    "mailingAddress": "1004 Westview Dr, Cocoa, FL 32922",
+    "mailingAddress": "1004 Westview Dr Cocoa FL 32922",
     "decedentAddress": null,
     "dateOfDeath": null
   },
@@ -6303,7 +6303,7 @@
     "decedentName": null,
     "petitionerName": "Thomas H Jackson",
     "isHotFlag": false,
-    "mailingAddress": null,
+    "mailingAddress": "498 Chattin Dr, Canton, Ga 30115",
     "decedentAddress": null,
     "firstSeenDate": "2026-09-05",
     "dateOfDeath": null
@@ -8400,7 +8400,7 @@
     "petitionerName": "Mary A. Owens",
     "isHotFlag": false,
     "mailingAddress": null,
-    "decedentAddress": "3251 HADDON HALL DRIVE, BUFORD, GWINNETT, GEORGIA, 30519",
+    "decedentAddress": "3261 Haddon Hall Drive, Buford, Gwinnett, Georgia, 30519",
     "firstSeenDate": "2026-09-23",
     "dateOfDeath": "06/02/2022"
   },
@@ -8637,9 +8637,10 @@
     "decedentName": "Jackson, Corey, SR",
     "petitionerName": "Ford, Latasha",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-24"
+    "mailingAddress": "2004 Capstone Way, Commerce, Banks County, Georgia 30529",
+    "decedentAddress": "382 Holderness Street, SW, Atlanta, Fulton County, Georgia 30310",
+    "firstSeenDate": "2026-09-24",
+    "dateOfDeath": "June 17, 2025"
   },
   {
     "caseDataID": "71078aa89adf43faa4b95406dfd04563",
@@ -8823,7 +8824,7 @@
     "county": "Gwinnett County - Probate Court",
     "caseType": "Estate*",
     "dateFiled": "2026-09-23T12:00:00",
-    "status": "Open",
+    "status": "Filed",
     "decedentName": "Walter Jason Harrington",
     "petitionerName": "Jazmyne Cain",
     "isHotFlag": false,
@@ -9007,9 +9008,10 @@
     "decedentName": "McCrary, Quovaris Deonta",
     "petitionerName": "Brown, Miracle",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "mailingAddress": "3133 Hickman Dr NW, Apt 104, Atlanta, Fulton, GA 30311",
+    "decedentAddress": "1185 Sells Avenue, SW, Atlanta, Fulton, GA 30310",
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": "July 31, 2023"
   },
   {
     "caseDataID": "d03b225ff8df432a8d106cc1746b9903",
@@ -9021,9 +9023,10 @@
     "decedentName": "Jackson, Addison J",
     "petitionerName": "Jackson, Herbert",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "mailingAddress": "3714 Liberty Dr, Powder Springs, Cobb, GA, 30127",
+    "decedentAddress": "3518 Roswell Road AH, Fulton, GA, 30305",
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": "July 26, 2026"
   },
   {
     "caseDataID": "53906f617bd04d9799e5462500c423c9",
@@ -9035,9 +9038,10 @@
     "decedentName": "Anderson, Bernice Javonne",
     "petitionerName": "Anderson, April Shawn",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "mailingAddress": "1247 Oak St. SW, Atlanta, Fulton, GA 30310",
+    "decedentAddress": "1247 Oak St. SW, Atlanta, Fulton, GA 30310",
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": "12-31-2024"
   },
   {
     "caseDataID": "379864eb454941ae9715107878684245",
@@ -9090,13 +9094,14 @@
     "county": "Gwinnett County - Probate Court",
     "caseType": "Estate*",
     "dateFiled": "2026-09-24T12:00:00",
-    "status": "Open",
+    "status": "Filed",
     "decedentName": "Essie Elizabeth Dickens",
     "petitionerName": "Cleveland Eric Dickens",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "mailingAddress": "1588 Holly Ridge Drive, Loganville, Gwinnett, GA, 30052",
+    "decedentAddress": "1588 Holly Ridge Drive, Loganville, Gwinnett, GA, 30052",
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": "February 12, 2026"
   },
   {
     "caseDataID": "afd12e3b3c4a4ec3961ae46d96ea5d62",
@@ -9134,7 +9139,7 @@
     "county": "Gwinnett County - Probate Court",
     "caseType": "Estate*",
     "dateFiled": "2026-09-24T12:00:00",
-    "status": "Open",
+    "status": "Filed",
     "decedentName": "Mabel Elfrida Mascoll",
     "petitionerName": "Fay Dolores Mascoll",
     "isHotFlag": false,
@@ -9211,9 +9216,10 @@
     "decedentName": "Pascal, Charles Joseph",
     "petitionerName": "Pascal, Nancy",
     "isHotFlag": false,
-    "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "mailingAddress": "738 Key Largo Court, Auburn, Gwinnett, GA 30011",
+    "decedentAddress": "370 Wayside Drive, Lawrenceville, Gwinnett, GA 30046",
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": "February 6, 2024"
   },
   {
     "caseDataID": "96280d0bb4cc47808c2c28f6893084a1",
@@ -9227,7 +9233,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "b6fcd0cd1769417a873865bb23630d93",
@@ -9241,6 +9248,183 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": null
+  },
+  {
+    "caseDataID": "c611b8fa6494493684b8b35c0672cd6d",
+    "caseNumber": "PC-2026-002444",
+    "county": "Fulton Probate Court",
+    "caseType": "Administration",
+    "dateFiled": "2026-09-25T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "Clark, Rosa Lee",
+    "petitionerName": "Norman, Gertrude Clark",
+    "isHotFlag": false,
+    "mailingAddress": "905 Regency Crest Drive, S.W., Atlanta, Fulton, Georgia 30331",
+    "decedentAddress": "2227 Abner Place, N.W., Atlanta, Fulton, Georgia 30318",
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": "January 10, 1986"
+  },
+  {
+    "caseDataID": "b7b6515620014f50abfc16a9a7ba1dee",
+    "caseNumber": "PC-2026-002442",
+    "county": "Fulton Probate Court",
+    "caseType": "Administration",
+    "dateFiled": "2026-09-25T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "Reese, Wanda Jean",
+    "petitionerName": "Easterly, Troy Laverne",
+    "isHotFlag": false,
+    "mailingAddress": "3479 Reveere Rd, Atlanta, Fulton, GA, 30331",
+    "decedentAddress": "7125 Lupine Ridge Lane, Atl, Fulton, GA, 30349",
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": "Sept 6, 2026"
+  },
+  {
+    "caseDataID": "a6ac39e28a0c4ccc9a3dd67826e7cb69",
+    "caseNumber": "PC-2026-002414",
+    "county": "Fulton Probate Court",
+    "caseType": "Administration",
+    "dateFiled": "2026-09-23T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "Slay, Kenneth L.",
+    "petitionerName": "Slay, Barry Maurice",
+    "isHotFlag": false,
+    "mailingAddress": "3970 Pontevedra Pl, S. Fulton, Fulton, GA, 30349",
+    "decedentAddress": "3970 Pontevedra Pl, South Fulton, Fulton, GA, 30349",
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": "July 26, 2024"
+  },
+  {
+    "caseDataID": "48ef507b39164d5a8e91ad055481f484",
+    "caseNumber": "PC-2026-002417",
+    "county": "Fulton Probate Court",
+    "caseType": "Administration",
+    "dateFiled": "2026-09-23T16:00:00+00:00",
+    "status": "Open",
+    "decedentName": "Simmons, Cotamplia Yolanda",
+    "petitionerName": "Andrews, Alan Iran",
+    "isHotFlag": false,
+    "mailingAddress": "17122 Silver Mine Xing, Austell, Cobb, GA 30168",
+    "decedentAddress": "4725 Wutton Lakes Xing, Atlanta, Fulton, GA 30331",
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": "Aug 11, 2021"
+  },
+  {
+    "caseDataID": "1b0c4bfbef4045edb2b61b247e4c1e23",
+    "caseNumber": "26-P-1895",
+    "county": "Cobb County - Probate Court",
+    "caseType": "Compliance and Accounting",
+    "dateFiled": "2026-09-25T14:38:25.5004879",
+    "status": null,
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": null
+  },
+  {
+    "caseDataID": "0a3733adb40c46df851a207dd7111e21",
+    "caseNumber": "26-E-001538",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-25T12:00:00",
+    "status": "Filed",
+    "decedentName": "CORBIN, FRANK GLENN",
+    "petitionerName": "CORBIN, MELISSA DAWN",
+    "isHotFlag": false,
+    "mailingAddress": "3750 Arden Creek Ct, Bethlehem, Gwinnett, GA 30620",
+    "decedentAddress": "897 Springlake Rd, Lawrenceville, Gwinnett, GA 30045",
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": "April 9, 2026"
+  },
+  {
+    "caseDataID": "3d5e3f0d52d64cb0bd7ce746b62a9fd1",
+    "caseNumber": "2026-ES-0556",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-25T12:00:00",
+    "status": "Open",
+    "decedentName": "Mazuran, Leonardo R.",
+    "petitionerName": "Mazuran, Zayra Lynn",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-26"
+  },
+  {
+    "caseDataID": "599ef0e4ef8849fc9ca31e02366356ee",
+    "caseNumber": "26-E-001539",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-25T12:00:00",
+    "status": "Filed",
+    "decedentName": "LIVINGSTON, LUTHER WAKEFIELD, JR",
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": "4536 MAGNOLIA CLUB CIRCLE, SUGAR HILL, GWINNETT, GEORGIA 30518",
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": "07/22/2026"
+  },
+  {
+    "caseDataID": "76e5f26db4d04aaeb1610b05696d0c21",
+    "caseNumber": "2026-ES-0554",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-25T12:00:00",
+    "status": "Open",
+    "decedentName": "Witherow, Robert Paul",
+    "petitionerName": "Bass, Robin Paula Holtzclaw",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-26"
+  },
+  {
+    "caseDataID": "1e3a6914e6ab49dfaec18cf07bd08b4d",
+    "caseNumber": "2026-ES-0555",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-25T12:00:00",
+    "status": "Open",
+    "decedentName": "Denham, Margaret Ann",
+    "petitionerName": "Denham, David Adam",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-26"
+  },
+  {
+    "caseDataID": "ebfa3212e38b4880acb6422ce71f071b",
+    "caseNumber": "26-E-001541",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-25T12:00:00",
+    "status": "Filed",
+    "decedentName": "BUS, SUZANNE LEA",
+    "petitionerName": "COOPER, NICHOLAS BRUCE",
+    "isHotFlag": false,
+    "mailingAddress": "1605 Nightingale St, Jefferson, Jackson, GA 30549",
+    "decedentAddress": "164 E Oak St, Lawrenceville, Gwinnett, GA 30046",
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": "August 22, 2026"
+  },
+  {
+    "caseDataID": "231a6bc749814493bc849bfde747e57f",
+    "caseNumber": "26-E-001540",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-25T12:00:00",
+    "status": "Filed",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-26"
   }
 ]
