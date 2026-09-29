@@ -1644,7 +1644,7 @@
     "decedentName": "Vilomar, Enrique Logan",
     "petitionerName": "Vilomar, Anthony",
     "isHotFlag": false,
-    "mailingAddress": "1004 Westview Dr Cocoa FL 32922",
+    "mailingAddress": "1004 Westview Dr, Cocoa, FL 32922",
     "decedentAddress": null,
     "dateOfDeath": null
   },
@@ -5812,7 +5812,7 @@
     "decedentName": null,
     "petitionerName": "Krystal Samplewilson",
     "isHotFlag": false,
-    "mailingAddress": null,
+    "mailingAddress": "3002 Clove Tree Lane, Woodstock, Georgia 30189",
     "decedentAddress": null,
     "firstSeenDate": "2026-09-03",
     "dateOfDeath": null
@@ -7909,8 +7909,9 @@
     "petitionerName": null,
     "isHotFlag": false,
     "mailingAddress": null,
-    "decedentAddress": null,
-    "firstSeenDate": "2026-09-20"
+    "decedentAddress": "3516 Greenside Court, Dacula, Gwinnett, Georgia, 30019",
+    "firstSeenDate": "2026-09-20",
+    "dateOfDeath": "08/13/2026"
   },
   {
     "caseDataID": "a9d6e5fb14e841268b66bf51a69e04c5",
@@ -8400,9 +8401,9 @@
     "petitionerName": "Mary A. Owens",
     "isHotFlag": false,
     "mailingAddress": null,
-    "decedentAddress": "3261 Haddon Hall Drive, Buford, Gwinnett, Georgia, 30519",
+    "decedentAddress": "3261 HADDON HALL DRIVE, BUFORD, GWINNETT, GEORGIA, 30519",
     "firstSeenDate": "2026-09-23",
-    "dateOfDeath": "06/02/2022"
+    "dateOfDeath": "06/02/2026"
   },
   {
     "caseDataID": "7aa40711c95547e8aa30d58bdf2e720f",
@@ -9160,7 +9161,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "15c928320fb84fee95327a693ec287b8",
@@ -9189,7 +9191,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-25"
+    "firstSeenDate": "2026-09-25",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "3717a48cdd4e4744ad2f77b7132bb7ea",
@@ -9366,7 +9369,7 @@
     "petitionerName": null,
     "isHotFlag": false,
     "mailingAddress": null,
-    "decedentAddress": "4536 MAGNOLIA CLUB CIRCLE, SUGAR HILL, GWINNETT, GEORGIA 30518",
+    "decedentAddress": "4536 MAGNOLIA CLUB SUGAR HILL, GEORGIA 30518",
     "firstSeenDate": "2026-09-26",
     "dateOfDeath": "07/22/2026"
   },
@@ -9382,7 +9385,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-26"
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "1e3a6914e6ab49dfaec18cf07bd08b4d",
@@ -9396,7 +9400,8 @@
     "isHotFlag": false,
     "mailingAddress": null,
     "decedentAddress": null,
-    "firstSeenDate": "2026-09-26"
+    "firstSeenDate": "2026-09-26",
+    "dateOfDeath": null
   },
   {
     "caseDataID": "ebfa3212e38b4880acb6422ce71f071b",
@@ -9426,5 +9431,149 @@
     "mailingAddress": null,
     "decedentAddress": null,
     "firstSeenDate": "2026-09-26"
+  },
+  {
+    "caseDataID": "3341895bb31e45fa9530583492eeb6c1",
+    "caseNumber": "26PC-E267",
+    "county": "Rockdale Probate Court",
+    "caseType": "Probate Solemn Form",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Filed",
+    "decedentName": "Everett, Kay S.",
+    "petitionerName": "Everett, Zandra K.",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-29"
+  },
+  {
+    "caseDataID": "9e6c27f89a7a4f8eba246d532265f7f0",
+    "caseNumber": "26PC-E268",
+    "county": "Rockdale Probate Court",
+    "caseType": "Letters of Administration",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Filed",
+    "decedentName": "Medbery, Lisa Marie",
+    "petitionerName": "Medbery, Jarod Andrew",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-29"
+  },
+  {
+    "caseDataID": "6440f0c146b44372a6019f34a4ce05e3",
+    "caseNumber": "26PA0049",
+    "county": "Cherokee County - Superior Court",
+    "caseType": "Permanent Administration",
+    "dateFiled": "2026-09-28T04:00:00",
+    "status": "Open",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-29"
+  },
+  {
+    "caseDataID": "bb01ca48b9ff48ce8a646bdf2ba9f594",
+    "caseNumber": "26-P-1907",
+    "county": "Cobb County - Probate Court",
+    "caseType": "Deceased Estates",
+    "dateFiled": "2026-09-28T13:40:23.5284073",
+    "status": null,
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-29",
+    "dateOfDeath": null
+  },
+  {
+    "caseDataID": "970eff9263b44e8cb3ef396fd706f0c5",
+    "caseNumber": "26-E-001545",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Filed",
+    "decedentName": "KIRKLAND, SUSAN HAZELWOOD",
+    "petitionerName": "KIRKLAND, MARK ALLEN",
+    "isHotFlag": false,
+    "mailingAddress": "820 MEADOW WALK AVE., LAWRENCEVILLE, GWINNETT COUNTY, GA 30044",
+    "decedentAddress": "820 MEADOW WALK AVE., LAWRENCEVILLE, GWINNETT COUNTY, GA 30044",
+    "firstSeenDate": "2026-09-29",
+    "dateOfDeath": "JULY 22, 2026"
+  },
+  {
+    "caseDataID": "e923c52552694f808482392cb0631b79",
+    "caseNumber": "26-E-001542",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Filed",
+    "decedentName": null,
+    "petitionerName": null,
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-29"
+  },
+  {
+    "caseDataID": "20acc22c12124675b5f44c817c6aedfa",
+    "caseNumber": "2026-ES-0557",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Open",
+    "decedentName": "Diamond, Lester Young, JR",
+    "petitionerName": "Ahola, Edith Diamond",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-29"
+  },
+  {
+    "caseDataID": "48cce527aa5e453f923bf4e33f6c5ded",
+    "caseNumber": "2026-ES-0558",
+    "county": "Forsyth County - Probate Court",
+    "caseType": "Estate",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Open",
+    "decedentName": "Jeyaram, Padmini",
+    "petitionerName": "Jeyaram, Chellapandian",
+    "isHotFlag": false,
+    "mailingAddress": null,
+    "decedentAddress": null,
+    "firstSeenDate": "2026-09-29"
+  },
+  {
+    "caseDataID": "2dd5e30d126c4e96b3c6efba2e8c56d7",
+    "caseNumber": "26-E-001547",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Filed",
+    "decedentName": "GONZALEZ, MARIA ABAD",
+    "petitionerName": "MARTINEZ GONZALEZ, CARLOS",
+    "isHotFlag": false,
+    "mailingAddress": "857 Huntington Way, Lilburn, Gwinnett, GA 30047",
+    "decedentAddress": "2283 New Castle Circle, Norcross, Gwinnett, GA 30071",
+    "firstSeenDate": "2026-09-29",
+    "dateOfDeath": "September 25, 2021"
+  },
+  {
+    "caseDataID": "3a2674e04f3b46618d1d36c5d50be8c3",
+    "caseNumber": "26-E-001543",
+    "county": "Gwinnett County - Probate Court",
+    "caseType": "Estate*",
+    "dateFiled": "2026-09-28T12:00:00",
+    "status": "Filed",
+    "decedentName": "NICHOLSON JR, JOSEPH GREENE",
+    "petitionerName": "NICHOLSON, SCOTT BROOKS",
+    "isHotFlag": false,
+    "mailingAddress": "593 Ben Ct. SW, Lilburn, Gwinnett, GA 30047",
+    "decedentAddress": "29 Stone Valley Drive, Lilburn, Gwinnett, GA 30047",
+    "firstSeenDate": "2026-09-29",
+    "dateOfDeath": "August 31, 2026"
   }
 ]
